@@ -6,7 +6,7 @@
         metosin/reitit-schema {:mvn/version "0.5.18"}
         metosin/reitit-frontend {:mvn/version "0.5.18"}
         lambdaisland/fetch {:mvn/version "1.1.60"}
-        thheller/shadow-cljs {:mvn/version "2.28.12"}}
+        com.teknql/shadow-cljs-tailwind-jit {:mvn/version "1.0.0"}}
 
  :aliases
  {:dev {:extra-paths ["test"]

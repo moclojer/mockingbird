@@ -3,7 +3,8 @@
  :builds {:app {:target :browser
                 :output-dir "resources/public/assets/js"
                 :asset-path "/assets/js"
+                :dev {:build-hooks [(teknql.tailwind/start-watch!)]}
+                :release {:build-hooks [(teknql.tailwind/compile-release!)]}
                 :modules {:core {:init-fn mockingbird.core/init}}
-                ;:reload-strategy :full
                 :devtools {:http-port 8106
                            :http-root "resources/public"}}}}

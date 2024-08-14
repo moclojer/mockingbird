@@ -1,7 +1,7 @@
 (ns mockingbird.components.popup
   (:require
-   [front.app.components.svg :as svg]
-   [front.app.lib :refer [defnc]]
+   [mockingbird.components.icons :as svg]
+   [mockingbird.lib :refer [defnc]]
    [helix.core :refer [$]]
    [helix.dom :as d]
    [helix.hooks :as hooks]
