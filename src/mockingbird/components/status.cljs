@@ -1,6 +1,5 @@
 (ns mockingbird.components.status
-  (:require [front.app.components.svg :as svg]
-            [front.app.lib :refer [defnc]]
+  (:require [mockingbird.lib :refer [defnc]]
             [helix.core :refer [$]]
             [helix.hooks :as hooks]
             [helix.dom :as d]

@@ -7,7 +7,7 @@
 
 ;; this is a front app application using shadow-cljs, tailwind jit, helix and refx.
 ;; You can see a simple page example running.
-(defn app[]
+(defn app []
   (<>
    (d/p "test")))
 
@@ -17,7 +17,7 @@
 (defn render []
   (.render root ($ app)))
 
-(defn config [] 
+(defn config []
   (println 'ok))
 
 (defn ^:export init []
