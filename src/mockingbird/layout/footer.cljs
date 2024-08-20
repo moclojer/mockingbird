@@ -1,4 +1,4 @@
-(ns mockingbird.sections.footer
+(ns mockingbird.layout.footer
   (:require [cljs.pprint :as pprint]
             [front.app.components.container :refer [aside-container]]
             [front.app.lib :refer [defnc]]
