@@ -1,7 +1,7 @@
 (ns mockingbird.core
   (:require
    ["react-dom/client" :as rdom]
-   [mockingbird.components.popup :as popup] ;; TODO
+   [mockingbird.components.input :refer [input]] 
    [helix.core :refer [$ <>]]
    [helix.dom :as d]))
 
@@ -9,7 +9,7 @@
 ;; You can see a simple page example running.
 (defn app []
   (<>
-   (d/p "test")))
+    ($ input {:label "carlos"})))
 
 (defonce root
   (rdom/createRoot (js/document.getElementById "app")))
