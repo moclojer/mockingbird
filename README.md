@@ -16,7 +16,7 @@ It's impossible to talk about *"mockingbird"* without remembering the song [Mock
 
 # Overview
 
-Mockingbird offers a set of reusable components and utilities that increases speed and beauty on your UI development. By integrating Tailwind, Helix with ReFx, Mockingbird combines utility-first CSS, tailwind-jit, functional programming, and a powerful component model in ClojureScript. This allows your team (or simply yourself) to focus on building robust, reactive interfaces without getting bogged down in styling and state management concerns.
+Mockingbird offers a set of reusable components and utilities that increases speed and beauty on your UI development. By integrating Tailwind, Helix with ReFx, Mockingbird combines utility-first CSS, postcss, functional programming, and a powerful component model in ClojureScript. This allows your team (or simply yourself) to focus on building robust, reactive interfaces without getting bogged down in styling and state management concerns.
 
 # Getting Started
 
@@ -34,7 +34,7 @@ Before you begin, ensure you have the following installed:
 
 ``` sh
 
-npm install tailwindcss tailwind-jit shadow-cljs node-repl
+npm i
 
 ```
 

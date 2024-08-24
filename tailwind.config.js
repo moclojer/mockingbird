@@ -3,7 +3,7 @@
 module.exports = {
   mode: 'jit',
   purge: {
-    content: ['./src/mockingbird/components/*.cljs']
+    content: ['./src/mockingbird/**/*.cljs']
   },
   safelist: [
     'w-64',

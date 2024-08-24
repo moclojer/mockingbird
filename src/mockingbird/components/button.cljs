@@ -4,7 +4,6 @@
    [helix.dom :as d]
    [helix.core :refer [$]]
    [refx.alpha :as refx]
-   [front.app.components.svg :as svg]
    [reitit.frontend.easy :as rfe]
    [mockingbird.components.popup :as popup]))
 
@@ -32,8 +31,9 @@
 ;; TODO
 (def aside-styles {})
 
-(defnc button [{:keys [children class-name  on-click type disabled template]
-                :or {class-name "" on-click "" base "solid" variant "blue" template "default" type "button"}}]
+(defnc button
+  [{:keys [children class-name  on-click type disabled template]
+    :or {class-name "" on-click "" base "solid" variant "blue" template "default" type "button"}}]
   (d/button
    {:class-name class-name
     :on-click on-click
@@ -41,7 +41,8 @@
     :disabled disabled}
    children))
 
-(defn get-login-style [class-name base variant]
+(defn get-login-style
+  [class-name base variant]
   (let [base-style (keyword base)
         variant-style (keyword variant)]
     (str
@@ -49,8 +50,9 @@
      (get-in variant-styles [base-style variant-style])
      class-name)))
 
-(defnc login-button [{:keys [children base variant class-name type disabled]
-                      :or {children "" base "solid" variant "blue" type "submit" disabled false}}]
+(defnc login-button
+  [{:keys [children base variant class-name type disabled]
+    :or {children "" base "solid" variant "blue" type "submit" disabled false}}]
   (let [class-name (get-login-style class-name base variant)]
     ($ button
        {:class-name class-name
@@ -58,16 +60,21 @@
         :disabled disabled}
        children)))
 
-(defnc new-mock-btn []
+(defnc button [])
+
+(defnc new-mock-btn
+  [{:keys [?icon1 ?icon2]
+    :or {?icon1 "" ?icon2 ""}}]
   ($ button {:class-name "px-3 py-2 bg-pink-600 rounded-lg flex flex-row space-x-2 items-center btn-add"
              :on-click #(refx/dispatch [:app.dashboard/toggle-mock-modal])}
-     ($ svg/plus-sign)
+     ($ ?icon1)
      (d/p {:class-name "text-white text-xs font-bold"}
           "new mock")
-     ($ svg/box)))
+     ($ ?icon2)))
 
-(defnc toggle-aside-btn [{:keys [aside-open?]
-                          :or {aside-open? false}}]
+(defnc toggle-aside-btn
+  [{:keys [aside-open?]
+    :or {aside-open? false}}]
   (d/button
    {:id "aside-toggle"
     :class (str (if aside-open?
@@ -82,8 +89,9 @@
                     :right)
        :class "w-3 h-3"})))
 
-(defnc home-btn [{:keys [aside-open?]
-                  :or {aside-open? false}}]
+(defnc home-btn
+  [{:keys [aside-open?]
+    :or {aside-open? false}}]
   (d/button
    {:class-name (str "flex items-center p-2 text-base font-normal text-gray-900 rounded-lg "
                      "transtion duration-75 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700 "

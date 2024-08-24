@@ -1,6 +1,6 @@
 (ns mockingbird.lib
   (:require
-    [helix.core]))
+   [helix.core]))
 
 (defmacro defnc [type & form-body]
   (let [[docstring form-body] (if (string? (first form-body))

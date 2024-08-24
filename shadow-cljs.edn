@@ -1,23 +1,21 @@
+
 {:deps {:aliases [:dev]}
  :nrepl {:port 9000}
  :builds {:app {:target :browser
                 :output-dir "resources/public/assets/js"
                 :asset-path "/assets/js"
-
+                :devtools {:reload-strategy :full
+                           :http-port 8106
+                           :http-root "resources/public"}
                 :build-hooks [(mockingbird.dev.shadow.hooks/hash-files
-                               ["./resources/public/assets/css/output.css"
-                                "./resources/public/assets/js/core.js"])
+                                ["./resources/public/assets/css/output.css"
+                                 "./resources/public/assets/js/core.js"])
                               (mockingbird.dev.shadow.hooks/replace-hashed-files
-                               "./resources/index.src.html"
-                               "./resources/public/index.html")]
-                :modules {:core {:init-fn mockingbird.core/init}}
-
+                                "./resources/index.src.html"
+                                "./resources/public/index.html")]
                 :dev      {:modules {:core {:init-fn mockingbird.core/init}}
                            :compiler-options {:warning-as-errors true}
                            :build-hooks [(mockingbird.dev.shadow.hooks/build-css
-                                          true
-                                          "./src/mockingbird/css/tailwind.css"
-                                          "./resources/public/assets/css/output.css")]}
-                :devtools {:reload-strategy :full
-                           :http-port 8106
-                           :http-root "resources/public"}}}}
+                                           true
+                                           "./src/mockingbird/css/tailwind.css"
+                                           "./resources/public/assets/css/output.css")]}}}}

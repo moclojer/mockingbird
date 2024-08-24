@@ -1,20 +1,23 @@
 (ns mockingbird.components.status
-  (:require 
-    [mockingbird.lib :refer [defnc]]
-    [helix.core :refer [$]]
-    [helix.hooks :as hooks]
-    [helix.dom :as d]
-    [refx.alpha :as refx]))
+  (:require
+   [mockingbird.lib :refer [defnc]]
+   [helix.core :refer [$]]
+   [helix.hooks :as hooks]
+   [helix.dom :as d]
+   [refx.alpha :as refx]))
 
-(defnc status-card [{:keys [status loading? title]}]
-  (d/div {:class (str "px-3 mr-2 flex flex-row space-x-2 items-center rounded-md dns-"
+(defnc status-card
+  [{:keys [status loading? title
+           offline publishing published]
+    :or {status false}}]
+  (d/div {:class (str "px-3 mr-2 flex flex-row space-x-2 items-center rounded-md "
                       (name status) (when loading? " opacity-70 animate-pulse"))}
          ($ (case status
-              :offline svg/dns-offline
-              :offline-invalid svg/dns-offline
-              :publishing svg/dns-publishing
-              :published svg/dns-published
-              :default svg/dns-offline))
+              :offline offline
+              :offline-invalid offline
+              :publishing publishing
+              :published published
+              :default offline))
          (d/p {:class "text-sm font-semibold"} title)))
 
 (defnc publication-status
@@ -48,12 +51,12 @@
                             ["publishing" "offline"]))]
 
     (hooks/use-effect
-      [status attempt]
-      (when loading?
-        (js/setTimeout #(refx/dispatch
-                          [:app.dashboard/get-mock-pub-stts
-                           {:mock-id id}])
-                       5000)))
+     [status attempt]
+     (when loading?
+       (js/setTimeout #(refx/dispatch
+                        [:app.dashboard/get-mock-pub-stts
+                         {:mock-id id}])
+                      5000)))
 
     ($ status-card
        {:status (if enabled

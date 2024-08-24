@@ -7,26 +7,6 @@
    [helix.hooks :as hooks]
    [refx.alpha :as refx]))
 
-;; alerts
-(def error-styles
-  {:card "rounded border-l-4 border-red-500 bg-red-50 p-4"
-   :tittle "block font-medium text-red-700"
-   :desc "mt-2 text-sm text-red-700"})
-
-(defnc error
-  [{:keys [id error description]}]
-  (let [{:keys [card tittle desc]} error-styles]
-    (d/div
-     {:id id
-      :class-name card}
-     (d/strong
-      {:class-name tittle}
-      error)
-     (when description
-       (d/p
-        {:class-name desc}
-        (str description))))))
-
 ;; notification
 (refx/reg-sub
  :app/notifications
@@ -49,6 +29,25 @@
  (fn [notification]
    (refx/dispatch [:app/enqueue-notification
                    notification])))
+;; alerts
+(def error-styles
+  {:card "rounded border-l-4 border-red-500 bg-red-50 p-4"
+   :tittle "block font-medium text-red-700"
+   :desc "mt-2 text-sm text-red-700"})
+
+(defnc error
+  [{:keys [id error description]}]
+  (let [{:keys [card title desc]} error-styles]
+    (d/div
+     {:id id
+      :class-name card}
+     (d/strong
+      {:class-name title}
+      error)
+     (when description
+       (d/p
+        {:class-name desc}
+        (str description))))))
 
 (def toast-data
   {:info {:class "bg-green-50 fill-green-700 text-green-700 border-green-700"

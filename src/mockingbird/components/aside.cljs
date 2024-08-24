@@ -1,7 +1,6 @@
 (ns mockingbird.components.aside
   (:require
-   [front.app.auth.supabase :as supabase]
-   [front.app.components.button :refer [new-mock-btn toggle-aside-btn home-btn]]
+   [mockingbird.components.button :refer [new-mock-btn toggle-aside-btn home-btn]]
    [mockingbird.comoponents.icons :as svg]
    [mockingbird.lib :refer [defnc]]
    [helix.core :refer [$]]
