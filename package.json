@@ -57,5 +57,10 @@
     "slugify": "^1.6.6",
     "svgmap": "^2.10.1",
     "use-sync-external-store": "1.2.0"
+  },
+  "msw": {
+    "workerDirectory": [
+      "resources/test"
+    ]
   }
 }

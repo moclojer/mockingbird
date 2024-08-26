@@ -24,4 +24,3 @@
 (defn ^:export init []
   (config)
   (render))
-

@@ -40,8 +40,8 @@ module.exports = {
     },
 
     extend: {
-      colors: {
-        bg: {"50": "#fde8e8", "700": "#808080", "800": "#5e5e5e"}, // TODO discover if any string value works as key
+      colors: { 
+        primary: {"50": "#fde8e8", "700": "#808080", "800": "#5e5e5e"}, 
         warning: {},
         success: {"50": "#def7ec", "700": "#046c4e"},
         main: {"50": "#e90562", "100": "#AA397F", "400":"#A9397E", "500": "#D42490", "600": "#FF009E","700": "#66003F", "800":"#55394A"},

@@ -19,4 +19,4 @@ pom.xml.asc
 /node_modules/
 /.shadow-cljs/
 /resources/public/assets
-
+/resources/test/

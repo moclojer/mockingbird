@@ -1,4 +1,4 @@
-(ns mockingbird.dev.shadow.hooks
+(ns dev.shadow.hooks
   (:require
    [babashka.process :as proc]
    [clojure.java.io :as io]
