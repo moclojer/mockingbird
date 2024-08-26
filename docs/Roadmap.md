@@ -1,12 +1,10 @@
 # Roadmap
 
-- docs
-- tailwind config, such as:
-    - colors, fonts and sizes;   
-- layout components, such as sections..
+- layout 
 - components
+- themes (mockingbird, nightjar, kiwi)
 - ReFx 
-- animation
-- themes
+- animations
 - text editor?
 - tests
+

@@ -1,11 +1,12 @@
 (ns mockingbird.components.input
+  (:refer-clojure :exclude [class type])
   (:require
    [helix.dom :as d]
    [mockingbird.lib :refer-macros [defnc]]))
 
 (def styles
-  {:text {:default (str "shadow-sm bg-gray-50 focus:ring-pink-500 "
-                        "focus:border-pink-500 block w-full sm:text-sm "
+  {:text {:mockingbird (str "shadow-sm bg-gray-50 focus:ring-mockingbird-main "
+                        "focus:border-mockingbird-main block w-full sm:text-sm "
                         "border-gray-300 rounded-md")
           :login (str)}
    :checkbox {:default (str "")}
@@ -18,7 +19,7 @@
   [{:keys [class type template on-load
            on-change placeholder label
            children]
-    :or {template :default
+    :or {template :mockingbird
          type :text
          on-load (fn [_])
          on-change (fn [_])

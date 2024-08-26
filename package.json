@@ -21,13 +21,10 @@
   "scripts": {
     "ci:karma-make": "npx msw init resources/test",
     "ci:tests": "npm run ci:karma-make && npx shadow-cljs compile ci-tests && npx karma start --single-run",
-    "shadow:release": "npx shadow-cljs release app",
     "postcss:build": "npx cross-env TAILWIND_MODE=build postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/output.css --verbose",
     "postcss:watch": "npx cross-env TAILWIND_MODE=watch postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/output.css --verbose -w",
-    "postcss:release": "npx cross-env NODE_ENV=production postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/output.css --verbose",
     "app:watch": "npx shadow-cljs watch app",
     "watch": "run-p -l *:watch",
-    "release": "run-s shadow:release",
     "repl": "npx shadow-cljs clj-repl"
   },
   "dependencies": {
@@ -59,8 +56,6 @@
     "use-sync-external-store": "1.2.0"
   },
   "msw": {
-    "workerDirectory": [
-      "resources/test"
-    ]
+    "workerDirectory": "resources/test"
   }
 }

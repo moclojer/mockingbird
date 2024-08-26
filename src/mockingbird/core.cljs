@@ -9,8 +9,9 @@
 ;; You can see a simple page example running.
 (defn app []
   (<>
-   (d/div {:class "w-screen h-screen flex"}
-          ($ input {:label "carlos"}))))
+   (d/body 
+       (d/div {:class ""}
+           ($ input {:label "carlos" :class "w-64"})))))
 
 (defonce root
   (rdom/createRoot (js/document.getElementById "app")))
