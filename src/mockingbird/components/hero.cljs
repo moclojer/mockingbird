@@ -5,4 +5,6 @@
 
 (defnc hero [])
 
+;; TODO: Implement the hero component
+
 

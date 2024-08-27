@@ -8,7 +8,7 @@ Mockingbird is a powerful tool for building your project, but, as a great dev, y
 
 Before running the application, ensure you have installed:
 
-- npm 
+- npm
 - Clojure
 
 you will also need to install deps before being as creative as you want:

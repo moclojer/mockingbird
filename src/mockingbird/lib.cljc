@@ -22,7 +22,7 @@
        ~@(when docstring [docstring])
        ~@(when fn-meta [fn-meta])
        ~params
-       ;; we use `merge` here to allow indidivual consumers to override feature
+       ;; we use `merge` here to allow individual consumers to override feature
        ;; flags in special cases
        ~(merge default-opts opts)
        ~@body)))

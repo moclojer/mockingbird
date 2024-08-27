@@ -1,9 +1,9 @@
 # Roadmap
 
-- layout 
+- layout
 - components
 - themes (mockingbird, nightjar, kiwi)
-- ReFx 
+- ReFx
 - animations
 - text editor?
 - tests

@@ -3,8 +3,10 @@
             [helix.dom :as d]))
 
 ;; TODO create a example to render on this app and demonstrate the components power!
-(defnc landing-page-test []
+(try
   ($ header)
   ($ aside)
   ($ hero)
-  ($ footer))
+  ($ footer)
+  (catch js/Error e
+    (js/console.error "Error rendering components:" e)))

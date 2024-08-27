@@ -2,18 +2,17 @@
   (:refer-clojure :exclude [class type])
   (:require
    [helix.dom :as d]
-   [mockingbird.lib :refer-macros [defnc]]))
+   [mockingbird.lib :refer-macros [defnc]]
+   [mockingbird.defaultstyles :refer [label-style]]))
 
 (def styles
   {:text {:mockingbird (str "shadow-sm bg-gray-50 focus:ring-mockingbird-main "
-                        "focus:border-mockingbird-main block w-full sm:text-sm "
-                        "border-gray-300 rounded-md")
+                            "focus:border-mockingbird-main block w-full sm:text-sm "
+                            "border-gray-300 rounded-md")
           :login (str)}
    :checkbox {:default (str "")}
    :file {:default (str "")}
    :select {:default (str "")}})
-
-(def label-style "block mb-2 text-sm font-medium text-gray-900")
 
 (defnc input
   [{:keys [class type template on-load

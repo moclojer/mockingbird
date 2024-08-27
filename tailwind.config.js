@@ -41,7 +41,7 @@ module.exports = {
 
     extend: {
       colors: { 
-        mockingbird: {"main": "#e90562", "100": "#AA397F", "400":"#A9397E", "500": "#D42490", "600": "#FF009E","700": "#66003F", "text":"#55394A"},
+        mockingbird: {"main": "#FF009E", "100": "#AA397F", "400":"#A9397E", "500": "#D42490", "600": "#e90562","700": "#66003F", "text":"#55394A"},
         nightjar: {"main": "#E0D94A", "bg": "#36362C"},
         kiwi: {"main": "#7FE04A", "bg": "#2F362C"},
         warning: {"50": "#fde8e8", "900": "#F05252"},

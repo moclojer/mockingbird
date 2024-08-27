@@ -17,7 +17,7 @@
               :offline-invalid offline
               :publishing publishing
               :published published
-              :default offline))
+              :default (d/span "Unknown status")))
          (d/p {:class "text-sm font-semibold"} title)))
 
 (defnc publication-status

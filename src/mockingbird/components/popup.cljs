@@ -1,7 +1,6 @@
 (ns mockingbird.components.popup
   (:require
-   [mockingbird.components.icons :as svg]
-   [mockingbird.lib :refer [defnc]]
+   [mockingbird.lib :refer-macros [defnc]]
    [helix.core :refer [$]]
    [helix.dom :as d]
    [helix.hooks :as hooks]
@@ -40,22 +39,20 @@
   (let [{:keys [card title desc]} error-styles]
     (d/div
      {:id id
-      :class-name card}
+      :class card}
      (d/strong
-      {:class-name title}
+      {:class title}
       error)
      (when description
        (d/p
-        {:class-name desc}
+        {:class desc}
         (str description))))))
 
 (def toast-data
-  {:info {:class "bg-green-50 fill-green-700 text-green-700 border-green-700"
-          :svg svg/info}
-   :error {:class "bg-red-50 fill-red-700 text-red-700 border-red-700"
-           :svg svg/error}})
+  {:info {:class "bg-green-50 fill-green-700 text-green-700 border-green-700"}
+   :error {:class "bg-red-50 fill-red-700 text-red-700 border-red-700"}})
 
-(defnc toast [{[id {:keys [type content]}] :children}]
+(defnc toast [{[id {:keys [type content icon]}] :children}]
   (hooks/use-effect
    :once
    (js/setTimeout
@@ -69,7 +66,8 @@
     {:class "flex flex-row items-center align-center space-between"}
     (d/div
      {:class "flex flex-row space-x-2 items-center align-center"}
-     ($ (get-in toast-data [type :svg]))
+     (when (icon)
+       ($ icon))
      (d/span content)))))
 
 (defnc notifications []
