@@ -7,10 +7,10 @@
     [mockingbird.layout.footer :refer [footer]]
     [mockingbird.layout.header :refer [header]]
     [mockingbird.components.hero :refer [hero]]
-    [mockingbird.components.main :refer [main]]))
+    [mockingbird.layout.main :refer [main]]))
 
 ;; TODO create a example to render on this app and demonstrate the components power!
-(defnc main []
+(defnc app []
   (d/div
     ($ header 
        ($ hero))
