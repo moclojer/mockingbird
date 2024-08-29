@@ -7,13 +7,15 @@
     [mockingbird.layout.footer :refer [footer]]
     [mockingbird.layout.header :refer [header]]
     [mockingbird.components.hero :refer [hero]]
-    [mockingbird.layout.main :refer [main]]))
+    [mockingbird.layout.main :refer [main]] 
+    [mockingbird.layout.navbar :refer [nav-bar]]))
 
 ;; TODO create a example to render on this app and demonstrate the components power!
 (defnc app []
-  (d/div
+  (d/div {:class "w-screen h-screen"}
     ($ header 
+       ($ nav-bar)
        ($ hero))
-    #_($ aside)
+    (comment ($ aside))
     ($ main (d/p "ok"))
     ($ footer)))

@@ -39,11 +39,11 @@
         :on-click #(refx/dispatch-sync [:app.dashboard/toggle-menu])})))))
 
 (defnc aside
-  [{:keys [id class type template
+  [{:keys [id class type theme
            aria-label position]
     :or {id ""
          class ""
-         template :mockingbird
+         theme :mockingbird
          aria-label "Sidebar"
          position :left}}]
   (d/div
@@ -61,7 +61,7 @@
             (d/div {:class "flex-1 px-3 space-y-1 bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700"}
                    (d/ul {:class "pb-2 space-y-2 pt-4"}
                          (d/li
-                          ($ button {:template "aside"}))
+                           ($ button {:theme "aside"}))
                          (d/div {:class "pt-2 space-y-2"}
                                 (d/a {:href "https://docs.moclojer.com/"
                                       :target "_blank"
@@ -70,7 +70,7 @@
                                      (d/span {:class
                                               (str "ml-3 "
                                                    #_(when-not aside-open?
-                                                     "lg:hidden lg:absolute"))}
+                                                       "lg:hidden lg:absolute"))}
                                              "Docs"))
                                 (d/a {:href "https://discord.gg/pbhBzKjhTb"
                                       :target "_blank"
@@ -78,13 +78,16 @@
                                      (d/span {:class
                                               (str "ml-3 "
                                                    #_(when-not aside-open?
-                                                     "lg:hidden lg:absolute"))}
+                                                       "lg:hidden lg:absolute"))}
                                              "Help")))))
-            (d/div {:class (str "absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex"
+            (d/div 
+              {:class (str "absolute bottom-0 left-0 justify-center p-4 space-x-4 w-full lg:flex"
                                 #_(when aside-open?
-                                  " flex-col space-y-4 p-4"))}
-                   ($ button {:class "flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition duration-75 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
-                              :icon ""})
+                                    " flex-col space-y-4 p-4"))}
+                   ($ button 
+                      {:class (str "flex items-center p-2 text-base font-normal text-gray-900 rounded-lg transition "
+                              "duration-75 hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700")
+                       :theme ""} ($ icon ))
                    #_(when aside-open?
-                     (d/span {:class "ml-3"}
-                             "Logout"))))))))
+                       (d/span {:class "ml-3"}
+                               "Logout"))))))))

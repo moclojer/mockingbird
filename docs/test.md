@@ -1,21 +1,8 @@
 # Running the local mocking bird tests
 
-Mockingbird is a powerful tool for building your project, but, as a great dev, you will not insert any random tool someone told you to. Instead, you are probably gonna test it several times and also contribute to the open source code, won't ya?
+Mockingbird is a powerful tool for helping you build your project, but, as a great dev, you will not insert any random tool someone told you to. Instead, you are probably gonna test it several times and also contribute to the open source code, won't ya?
 
 > To do so, follow this simple md file
-
-## Prerequisites
-
-Before running the application, ensure you have installed:
-
-- npm
-- Clojure
-
-you will also need to install deps before being as creative as you want:
-
-``` sh
-npm i
-```
 
 ## Dev 
 

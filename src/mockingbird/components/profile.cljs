@@ -32,6 +32,9 @@
     (str (get pfp-styles image-style)
          children)))
 
+
+;; TODO integrate this to the normal pfp
+
 (defnc pfp-img
   [{:keys [image-style
            pfp-loading? pfp-url] :as props}]

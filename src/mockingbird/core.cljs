@@ -6,10 +6,11 @@
    [helix.dom :as d]))
 
 ;; this is a front app application using shadow-cljs, postcss, helix and refx.
-;; You can see a simple page example running.
+;; You can see a simple page example running here.
+
 (defn app []
-  (d/div {:class "w-screen h-screen"}
-      ($ ex/app))) ;; TODO change size 
+  (<>
+    ($ ex/app))) 
 
 (defonce root
   (rdom/createRoot (js/document.getElementById "app")))
@@ -18,7 +19,7 @@
   (.render root ($ app)))
 
 (defn config []
-  (println 'ok))
+  (println "ok"))
 
 (defn ^:export init []
   (config)

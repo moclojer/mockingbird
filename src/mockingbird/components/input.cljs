@@ -2,8 +2,10 @@
   (:refer-clojure :exclude [class type])
   (:require
    [mockingbird.lib :refer-macros [defnc]]
-   [mockingbird.defaultstyles :refer [label-style]]
    [helix.dom :as d]))
+
+
+(def label-style "block mb-2 text-sm font-medium text-gray-900")
 
 (def styles
   {:text {:mockingbird (str "shadow-sm bg-gray-50 focus:ring-mockingbird-main "

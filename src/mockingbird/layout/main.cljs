@@ -4,5 +4,5 @@
     [mockingbird.lib :refer-macros [defnc]]))
 
 (defnc main [{:keys [children]}]
-  (d/div {:class "w-screen h-max"}
+  (d/div {:class "w-screen h-screen"}
     children))
