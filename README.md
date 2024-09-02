@@ -52,4 +52,3 @@ And you are now done, you can clone and build this repo in order to see some exa
 # Contributing
 
 Mockingbird is open-source, and contributions are welcome! If you have ideas for new features, improvements, or bug fixes, feel free to open an issue or submit a pull request.
-

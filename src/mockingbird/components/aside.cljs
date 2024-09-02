@@ -1,6 +1,7 @@
 (ns mockingbird.components.aside
   (:require
    [mockingbird.components.button :refer [button]]
+   [mockingbird.components.icon :refer [icon]]
    [mockingbird.lib :refer-macros [defnc]]
    [helix.core :refer [$]]
    [helix.dom :as d]
@@ -61,7 +62,7 @@
             (d/div {:class "flex-1 px-3 space-y-1 bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700"}
                    (d/ul {:class "pb-2 space-y-2 pt-4"}
                          (d/li
-                           ($ button {:theme "aside"}))
+                           ($ button {:theme "aside"} "a"))
                          (d/div {:class "pt-2 space-y-2"}
                                 (d/a {:href "https://docs.moclojer.com/"
                                       :target "_blank"
