@@ -1,0 +1,41 @@
+name: Ci-Tests
+
+on:
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - 'src/**'
+      - 'test/**'
+      - 'shadow-cljs.edn'
+      - 'resources/**'
+
+jobs:
+  tests:
+    strategy:
+      matrix:
+        os-version: [ubuntu-latest]
+        node-version: [16.x]
+    runs-on: ${{ matrix.os-version }}
+
+    steps:
+    - name: Clone Repo
+      uses: actions/checkout@v3.0.2
+
+    - name: Prepare java
+      uses: actions/setup-java@v3.3.0
+      with:
+        distribution: 'adopt'
+        java-version: '11'
+
+    - name: Install clojure cli
+      uses: DeLaGuardo/setup-clojure@master
+      with:
+        cli: 1.11.1.1113
+
+    - name: Test ${{ matrix.node-version }}
+      uses: actions/setup-node@v3.2.0
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: |
+        npm ci
+        npm run ci:tests
