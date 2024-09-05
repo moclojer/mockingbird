@@ -10,7 +10,7 @@
 
 (defn app []
   (<>
-    ($ ex/app))) 
+   ($ ex/app)))
 
 (defonce root
   (rdom/createRoot (js/document.getElementById "app")))

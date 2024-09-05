@@ -32,7 +32,6 @@
     (str (get pfp-styles image-style)
          children)))
 
-
 ;; TODO integrate this to the normal pfp
 
 (defnc pfp-img

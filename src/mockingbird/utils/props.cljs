@@ -1,10 +1,10 @@
 (ns mockingbird.utils.props)
 
-(defn get-props 
-  [{:keys [size roundness shadow 
+(defn get-props
+  [{:keys [size roundness shadow
            margin padding class]
     :or {size :md roundness :md shadow :md padding :md margin :md}}]
-  (let [actual-size 
+  (let [actual-size
         (case size
           :sm "w-8 h-8"
           :md "w-16 h-16"

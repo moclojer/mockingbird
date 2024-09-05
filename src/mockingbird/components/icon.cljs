@@ -1,11 +1,11 @@
 (ns mockingbird.components.icon
-  (:require 
-    [mockingbird.lib :refer-macros [defnc]]
-    [helix.dom :as d]))
+  (:require
+   [mockingbird.lib :refer-macros [defnc]]
+   [helix.dom :as d]))
 
 ;; TODO
 
-(def styles 
+(def styles
   {})
 
 (defnc icon

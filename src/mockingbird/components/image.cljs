@@ -7,12 +7,11 @@
 
 (def pfp-styles {:mockingbird ""})
 
-
-(defnc pfp 
-  [{:keys [class theme image 
+(defnc pfp
+  [{:keys [class theme image
            alt size roundness
-           shadow margin padding 
-           children] 
+           shadow margin padding
+           children]
     :or {theme :mockingbird
          image "/images/logo.png"
          alt "test"
@@ -21,14 +20,14 @@
          shadow :none
          margin :none
          padding :none}}]
-  (d/div 
-    (d/img {:class (str (get pfp-styles theme) " " 
-                        (get-props {:size size
-                                    :roundness roundness
-                                    :shadow shadow
-                                    :margin margin 
-                                    :padding padding
-                                    :class class}))
-            :src image
-            :alt alt})
-    children))
+  (d/div
+   (d/img {:class (str (get pfp-styles theme) " "
+                       (get-props {:size size
+                                   :roundness roundness
+                                   :shadow shadow
+                                   :margin margin
+                                   :padding padding
+                                   :class class}))
+           :src image
+           :alt alt})
+   children))

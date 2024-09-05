@@ -1,14 +1,14 @@
 (ns mockingbird.components.form
-  (:require 
-    [mockingbird.lib :refer-macros [defnc]]
-    [helix.dom :as d]))
+  (:require
+   [mockingbird.lib :refer-macros [defnc]]
+   [helix.dom :as d]))
 
 ;; TODO
-(def styles 
+(def styles
   {})
 
 (defnc form
-  [{:keys [class theme label 
+  [{:keys [class theme label
            children]
     :or {theme :mockingbird
          children "Insert some text"}}]

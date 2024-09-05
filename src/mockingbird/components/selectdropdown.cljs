@@ -1,13 +1,13 @@
 (ns mockingbird.components.selectdropdown
-  (:require 
-    [mockingbird.lib :refer-macros [defnc]]
-    [helix.dom :as d]))
+  (:require
+   [mockingbird.lib :refer-macros [defnc]]
+   [helix.dom :as d]))
 
 ;; TODO
 (def styles {})
 
 (defnc select-dropdown
-  [{:keys [class theme label 
+  [{:keys [class theme label
            children]
     :or {theme :mockingbird
          children "Insert some text"}}]

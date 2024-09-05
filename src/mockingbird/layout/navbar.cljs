@@ -24,9 +24,9 @@
 
 (defnc nav-bar
   [{:keys [aside-state hamburguer-menu hamburguer-menu-close
-          buttons fixed? & children]
-    :or {aside-state false 
-         fixed? true 
+           buttons fixed? & children]
+    :or {aside-state false
+         fixed? true
          hamburguer-menu " "
          hamburguer-menu-close " "
          buttons nil}}]
@@ -43,11 +43,11 @@
                          :class (str "p-2 mr-3 text-gray-600 rounded cursor-pointer "
                                      "hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 "
                                      "dark:hover:text-white dark:hover:bg-gray-700 lg:hidden")}
-                        #_(if aside-open?
-                          ($ icon hamburger-menu-close)
-                          ($ icon hamburger-menu)))
+                 #_(if aside-open?
+                     ($ icon hamburger-menu-close)
+                     ($ icon hamburger-menu)))
               ($ button {:type :icon
-                         :on-click " "#_#(rfe/push-state :app.core/dashboard)}
-                        (d/img {:src "/images/logo.png"
-                                :class "mr-3 h-9"})))))))) 
-              
+                         :on-click " " #_#(rfe/push-state :app.core/dashboard)}
+                 (d/img {:src "/images/logo.png"
+                         :class "mr-3 h-9"}))))))))
+
