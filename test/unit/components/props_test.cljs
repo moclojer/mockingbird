@@ -1,7 +1,7 @@
 (ns unit.components.props-test
   (:require
    [clojure.test :refer [is testing deftest]]
-   [mockingbird.utils.props :refer [get-props]]))
+   [mockingbird.helpers.props :refer [get-props]]))
 
 (deftest test-get-props
   (testing "Check for props args"

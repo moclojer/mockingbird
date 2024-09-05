@@ -1,4 +1,4 @@
-(ns mockingbird.utils.props)
+(ns mockingbird.helpers.props)
 
 (defn get-props
   [{:keys [size roundness shadow

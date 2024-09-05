@@ -16,21 +16,21 @@ It's impossible to talk about *"mockingbird"* without remembering the song [Mock
 
 # Overview
 
-Mockingbird offers a set of reusable components and utilities that increases speed and beauty on your UI development. By integrating Tailwind, Helix and ReFx, Mockingbird combines tailwind, postcss, functional programming, and a powerful component model in ClojureScript. This allows your team (or simply yourself) to focus on building robust, reactive interfaces without getting bogged down in styling and local state management concerns.
+Mockingbird offers a set of reusable components and utilities that increases speed and beauty on your UI development. By integrating Tailwind, Helix and ReFx, Mockingbird combines functional programming, a powerful component model together creating a fast and lightweight design system. This allows your team (or simply yourself) to focus on building robust, reactive interfaces without getting bogged down in styling and local state management concerns.
 
 # Getting Started
 
 Prerequisites
 
 Before you begin, ensure you have the following installed:
-- ClojureScript: Follow the [Clojure Installation guide](https://clojure.org/guides/install_clojure) to set up your environment.
+- Clojure: Follow the [Clojure Installation guide](https://clojure.org/guides/install_clojure) to set up your environment.
 - Node.js: Required for managing dependencies and building your project. Download it from [here](https://www.npmjs.com/package/downloads).
 
 # Installation
 
 - Set up your project: Start by creating a new ClojureScript project, or use an existing one.
 
-- Install Tailwind CSS: Add Tailwind CSS to your project using npm or yarn:
+- Install node dependencies with a simple command: 
 
 ``` sh
 npm i
