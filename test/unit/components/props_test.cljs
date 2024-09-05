@@ -25,13 +25,26 @@
                        :margin :none
                        :padding :none
                        :class "basic-class"})
-           "w-full rounded-none shadow-none p-0 m-0 basic-class"))
+           "w-full basic-class"))
     (is (= (get-props {:size :xl
                        :roundness :none
                        :shadow :none})
-           "w-64 h-64 rounded-none shadow-none p-4 m-4 "))))
+           "w-64 h-64 "))))
 
 (deftest test-default-cases
   (testing "Check for default cases"
-    (is (= (get-props {})
-           "w-16 h-16 rounded-md shadow-md p-4 m-4 "))))
+    (testing "All defaults (empty map)"
+      (is (= (get-props {})
+             "w-16 h-16 ")))
+    
+    (testing "Partial defaults"
+      (is (= (get-props {:size :sm})
+             "w-8 h-8 "))
+      (is (= (get-props {:roundness :full 
+                         :shadow :lg})
+             "w-16 h-16 rounded-full shadow-lg ")))
+    
+    (testing "Nil values"
+      (is (= (get-props {:size nil 
+                         :roundness nil})
+             "w-16 h-16 ")))))
