@@ -33,9 +33,9 @@ jobs:
         cli: 1.11.1.1113
 
     - name: Test ${{ matrix.node-version }}
-      uses: actions/setup-node@v3.2.0
+      uses: actions/setup-node@v4
       with:
-        node-version: ${{ matrix.node-version }}
+        node-version: 22.8.0
     - run: |
         npm ci
         npm run ci:tests
