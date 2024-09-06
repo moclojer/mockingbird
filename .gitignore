@@ -18,6 +18,8 @@ pom.xml.asc
 .calva/
 /node_modules/
 /.shadow-cljs/
+/resources/public/index.html
 /resources/public/assets
 /resources/public/css/site.css
 /resources/test/
+

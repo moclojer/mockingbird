@@ -1,7 +1,7 @@
 (ns mockingbird.components.image
   (:refer-clojure :exclude [class])
   (:require
-   [mockingbird.utils.props :refer [get-props]]
+   [mockingbird.helpers.props :refer [get-props]]
    [mockingbird.lib :refer-macros [defnc]]
    [helix.dom :as d]))
 
