@@ -23,9 +23,10 @@
     "ci:tests": "npm run ci:karma-make && npx shadow-cljs compile ci-tests && npx karma start --single-run",
     "postcss:build": "npx cross-env TAILWIND_MODE=build postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/output.css --verbose",
     "postcss:watch": "npx cross-env TAILWIND_MODE=watch postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/output.css --verbose -w",
-    "app:watch": "npx shadow-cljs watch app",
-    "watch": "run-p -l *:watch",
-    "repl": "npx shadow-cljs clj-repl"
+    "watch": "npx shadow-cljs watch app",
+    "repl": "npx shadow-cljs clj-repl",
+    "release": "run-s shadow:release",
+    "shadow:release": "npx shadow-cljs release app"
   },
   "dependencies": {
     "@codemirror/language": "^6.6.0",

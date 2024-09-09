@@ -41,5 +41,5 @@
           :md "m-4 "
           :lg "m-8 "
           nil)]
-    (str actual-size actual-roundness cast-shadow 
+    (str actual-size actual-roundness cast-shadow
          actual-padding actual-margin class)))

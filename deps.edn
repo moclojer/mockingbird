@@ -1,5 +1,6 @@
 {:paths ["src" "resources"]
  :deps {org.clojure/clojure {:mvn/version "1.11.1"}
+        org.clojure/clojurescript {:mvn/version "1.11.4"}
         com.fbeyer/refx {:mvn/version "0.0.49"}
         lilactown/helix {:mvn/version "0.1.9"}
         funcool/promesa {:mvn/version "9.0.494"}
@@ -15,4 +16,14 @@
   :clojure-lsp {:replace-deps {com.github.clojure-lsp/clojure-lsp-standalone {:mvn/version "2024.08.05_18.16.00-1"}}
                 :main-opts ["-m" "clojure-lsp.main"]}
   :build {:deps {io.github.clojure/tools.build {:mvn/version "0.9.4"}}
-          :ns-default build}}}
+          :ns-default build}
+
+  ;; clj -M:dev --report stderr -m com.moclojer.tools.build
+  ;; env CLOJARS_USERNAME=username CLOJARS_PASSWORD=clojars-token
+  ;; clj -X:deploy-clojars
+  :deploy-clojars {:extra-deps {slipset/deps-deploy {:mvn/version (build/version)}}
+                   :exec-fn deps-deploy.deps-deploy/deploy
+                   :exec-args {:installer :remote
+                               :sign-releases? false
+                               :pom-file "target/classes/META-INF/maven/com.moclojer/mockingbird/pom.xml"
+                               :artifact "target/com.moclojer.mockingbird.jar"}}}}

@@ -9,39 +9,23 @@
    [refx.alpha :as refx]
    [reitit.frontend.easy :as rfe]))
 
-#_(defnc mock []
-    (let [aside (refx/use-sub [:app.dashboard/aside])
-          aside-open? (:open? aside)
-          current-user (refx/use-sub [:app.auth/current-user])
-          menu-open? (refx/use-sub [:app.dashboard/is-menu-open?])
-          mocks-raw (refx/use-sub [:app.dashboard/mocks-raw])]
-
-      (hooks/use-effect
-       [mocks-raw]
-       (when (nil? mocks-raw)
-         (refx/dispatch-sync [:app.dashboard/get-mocks current-user])))
-
+;; TODO add mock content
+(defnc mock [{:keys [aside aside-open? 
+                     current-user menu-open?
+                     mocks-raw when-mock-raw
+                     children]
+              :or {aside "" aside-open? false
+                   current-user "" menu-open? false
+                   mocks-raw false when-mock-raw ""}}]
       (d/li
        (d/div
         {:class "flex flex-row"}
-        (d/button
-         {:on-click #(rfe/push-state :app.core/mocks)
-          :class (str "flex items-center p-2 w-full text-base font-normal text-gray-900 rounded-lg "
-                      "transition duration-75 group hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 ")
-          :aria-controls "dropdown-mocks"
-          :aria-expanded aside-open?
-          :data-collapse-toggle "dropdown-mocks"}
-         (d/span {:class (str "flex ml-3 text-left whitespace-nowrap "
-                              (when-not aside-open?
-                                "lg:absolute lg:hidden"))} "Mocks"))
-        (d/button
-         {:class (str "px-2 rounded-lg fill-gray-200 bg-transparent hover:bg-gray-200 hover:fill-gray-400 "
-                      (if aside-open? "block " "hidden "))
-          :on-click #(refx/dispatch-sync [:app.dashboard/toggle-menu])})))))
+        children)))
 
 (defnc aside
   [{:keys [id class type theme
-           aria-label position]
+           aria-label position
+           children]
     :or {id ""
          class ""
          theme :mockingbird
@@ -92,3 +76,7 @@
              #_(when aside-open?
                  (d/span {:class "ml-3"}
                          "Logout"))))))))
+
+
+;; TODO aside specific components
+(defnc aside-componet [])

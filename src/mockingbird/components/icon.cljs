@@ -6,7 +6,7 @@
 ;; TODO
 
 (def styles
-  {})
+  {:mockingbird {}})
 
 (defnc icon
   [{:keys [class theme label href

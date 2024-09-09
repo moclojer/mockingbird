@@ -6,6 +6,15 @@
    [helix.hooks :as hooks]
    [refx.alpha :as refx]))
 
+(def error-styles
+  {:card "rounded border-l-4 border-red-500 bg-red-50 p-4"
+   :tittle "block font-medium text-red-700"
+   :desc "mt-2 text-sm text-red-700"})
+
+(def toast-data-styles
+  {:info {:class "bg-green-50 fill-green-700 text-green-700 border-green-700"}
+   :error {:class "bg-red-50 fill-red-700 text-red-700 border-red-700"}})
+
 ;; notification
 (refx/reg-sub
  :app/notifications
@@ -28,11 +37,6 @@
  (fn [notification]
    (refx/dispatch [:app/enqueue-notification
                    notification])))
-;; alerts
-(def error-styles
-  {:card "rounded border-l-4 border-red-500 bg-red-50 p-4"
-   :tittle "block font-medium text-red-700"
-   :desc "mt-2 text-sm text-red-700"})
 
 (defnc error
   [{:keys [id error description]}]
@@ -48,10 +52,6 @@
         {:class desc}
         (str description))))))
 
-(def toast-data
-  {:info {:class "bg-green-50 fill-green-700 text-green-700 border-green-700"}
-   :error {:class "bg-red-50 fill-red-700 text-red-700 border-red-700"}})
-
 (defnc toast [{[id {:keys [type content icon]}] :children}]
   (hooks/use-effect
    :once
@@ -61,7 +61,7 @@
 
   (d/div
    {:class (str "w-fit px-5 py-4 bg-blue-600 rounded-lg border-2 "
-                (get-in toast-data [type :class]))}
+                (get-in toast-data-styles [type :class]))}
    (d/div
     {:class "flex flex-row items-center align-center space-between"}
     (d/div

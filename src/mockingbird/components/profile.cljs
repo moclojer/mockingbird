@@ -7,25 +7,6 @@
             [promesa.core :as p]
             [refx.alpha :as refx]))
 
-(def gravatar-base-url "https://gravatar.com/avatar/")
-(def auth0-cdn-base-url "https://cdn.auth0.com/avatars/")
-
-(def pfp-styles
-  {:default "w-8 h-8 rounded-none opacity-100"
-   :rounded "w-8 h-8 rounded-full opacity-100"
-   :loading "w-8 h-8 rounded-full opacity-30 animate-pulse"})
-
-(defn get-simple-avatar-url [username]
-  (let [uq-names (-> username
-                     (str/split #" "))
-        initials (->> uq-names
-                      (take 2)
-                      (map #(take 1 %))
-                      flatten
-                      (str/join "")
-                      str/lower-case)]
-    (str auth0-cdn-base-url initials ".png")))
-
 (defn get-image-style
   [{:keys [children image-style]}]
   (let [image-style (keyword image-style)]

@@ -36,15 +36,15 @@
     (testing "All defaults (empty map)"
       (is (= (get-props {})
              "w-16 h-16 ")))
-    
+
     (testing "Partial defaults"
       (is (= (get-props {:size :sm})
              "w-8 h-8 "))
-      (is (= (get-props {:roundness :full 
+      (is (= (get-props {:roundness :full
                          :shadow :lg})
              "w-16 h-16 rounded-full shadow-lg ")))
-    
+
     (testing "Nil values"
-      (is (= (get-props {:size nil 
+      (is (= (get-props {:size nil
                          :roundness nil})
              "w-16 h-16 ")))))
