@@ -20,6 +20,6 @@ pom.xml.asc
 /.shadow-cljs/
 /resources/public/index.html
 /resources/public/assets
-/resources/public/css/site.css
+/resources/public/css/
 /resources/test/
-
+/resources/node/

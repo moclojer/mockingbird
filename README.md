@@ -29,7 +29,7 @@ Before you begin, ensure you have the following installed:
 
 # Installation
 
-We distribute our software via Clojars, so you are able to just plug and play!
+We distribute our software via Clojars, so you are can just plug and play!
 
 ``` clj
 

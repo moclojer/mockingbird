@@ -1,5 +1,6 @@
 # Roadmap
 
+- distribuition
 - layout
 - components
 - themes (mockingbird, nightjar, kiwi)

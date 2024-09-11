@@ -26,7 +26,8 @@
     "watch": "npx shadow-cljs watch app",
     "repl": "npx shadow-cljs clj-repl",
     "release": "run-s shadow:release",
-    "shadow:release": "npx shadow-cljs release app"
+    "shadow:release": "npx shadow-cljs release app",
+    "lib": "npx shadow-cljs compile node-lib "
   },
   "dependencies": {
     "@codemirror/language": "^6.6.0",

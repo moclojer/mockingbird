@@ -2,7 +2,7 @@
   (:require
    [helix.core]))
 
-(defmacro defnc [type & form-body]
+(defmacro ^:export defnc [type & form-body]
   (let [[docstring form-body] (if (string? (first form-body))
                                 [(first form-body) (rest form-body)]
                                 [nil form-body])
