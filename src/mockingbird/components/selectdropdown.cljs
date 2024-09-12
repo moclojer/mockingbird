@@ -6,7 +6,7 @@
 ;; TODO
 (def styles {})
 
-(defnc select-dropdown
+(defnc selectdropdown
   [{:keys [class theme label
            children]
     :or {theme :mockingbird

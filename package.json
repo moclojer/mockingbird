@@ -2,6 +2,7 @@
   "name": "mockingbird-cljs",
   "version": "0.0.1",
   "private": true,
+  "main": "target/mockingbird-lib.js"
   "devDependencies": {
     "@testing-library/react": "^14.0.0",
     "autoprefixer": "^10.4.14",
@@ -27,7 +28,7 @@
     "repl": "npx shadow-cljs clj-repl",
     "release": "run-s shadow:release",
     "shadow:release": "npx shadow-cljs release app",
-    "lib": "npx shadow-cljs compile node-lib "
+    "lib": "npx shadow-cljs release npm-module"
   },
   "dependencies": {
     "@codemirror/language": "^6.6.0",

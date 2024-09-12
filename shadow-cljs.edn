@@ -38,16 +38,29 @@
                      :output-to        "resources/test/ci.js"
                      :ns-regexp        "-test$"
                      :compiler-options {:static-fns false}}
-          :node-lib {:target           :node-library
-                     :output-dir       "./resources/node/"
-                     :output-to        "./resources/node/lib.js"
-                     :exports-fn       mockingbird.node/generate-exports
-                     :compiler-options {:optimizations :advanced
-                                        :infer-externs :auto
-                                        :source-map true
-                                        :warnings-as-errors true}
-                     :build-options {:manifest-name "manifest.json"}
-                     :build-hooks [(dev.shadow.hooks/build-css
-                                     false
-                                     "./src/mockingbird/css/tailwind.css"
-                                     "./resources/node/output.css")]}}}
+          :npm-module {:target           :npm-module
+                       :output-dir       "./target/"
+                       :entries         [mockingbird.components.button
+                                         mockingbird.components.breadcrumb  
+                                         mockingbird.components.aside 
+                                         mockingbird.components.filedropdown
+                                         mockingbird.components.form 
+                                         mockingbird.components.hero
+                                         mockingbird.components.icon
+                                         mockingbird.components.input
+                                         mockingbird.components.image
+                                         ;; [mockingbird.components.popup  [popup]]
+                                         ;; [mockingbird.components.profile  [profile]]
+                                         mockingbird.components.selectdropdown  
+                                         #_[mockingbird.components.status  [status]]
+                                         ]
+
+                       :compiler-options {:optimizations :advanced
+                                          :infer-externs :auto
+                                          :source-map true
+                                          :warnings-as-errors true}
+                       :build-options {:manifest-name "manifest.json"}
+                       :build-hooks [(dev.shadow.hooks/build-css
+                                       false
+                                       "./src/mockingbird/css/tailwind.css"
+                                       "./resources/node/output.css")]}}}

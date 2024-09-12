@@ -1,6 +1,6 @@
 (ns mockingbird.components.status
   (:require
-   [mockingbird.lib :refer [defnc]]
+   [mockingbird.lib :refer-macros [defnc]]
    [helix.core :refer [$]]
    [helix.hooks :as hooks]
    [helix.dom :as d]

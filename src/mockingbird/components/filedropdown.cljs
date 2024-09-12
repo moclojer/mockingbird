@@ -5,7 +5,7 @@
 
 (def styles {})
 
-(defnc form-dropdown
+(defnc filedropdown
   [{:keys [class theme label
            children]
     :or {theme :mockingbird
