@@ -23,8 +23,7 @@ jobs:
                 CLOJARS_USERNAME: ${{ secrets.CLOJARS_USERNAME }}
                 CLOJARS_PASSWORD: ${{ secrets.CLOJARS_PASSWORD }}
               run: |
-                clojure -T:dev:build clean  && \
-                clojure -T:dev:build jar && \
-                clojure -T:dev:build install && \
-                clojure -X:deploy-clojars
+                npm ci && \
+                npm run release && \
+                npm release
                 

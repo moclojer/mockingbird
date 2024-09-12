@@ -36,7 +36,7 @@
            :alt alt})
    children))
 
-(defnc img
+(defnc image 
   [{:keys [class theme image
            alt size roundness
            shadow margin padding

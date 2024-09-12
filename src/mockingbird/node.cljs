@@ -1,8 +1,8 @@
 (ns mockingbird.node
   (:require
    [mockingbird.components.button :refer [button]]
-   [mockingbird.components.image :refer [pfp]]
-   [helix.dom :as d]))
+   [mockingbird.components.input :refer [input]]
+   [mockingbird.components.image :refer [image pfp]]))
 
 (defn hello []
   (prn "hello")
@@ -10,6 +10,7 @@
 
 (defn generate-exports []
   #js{:hello hello
-      :helix-dom d/img
       :button button
-      :image pfp})
+      :image image
+      :pfp pfp
+      :input input})

@@ -38,29 +38,16 @@
                      :output-to        "resources/test/ci.js"
                      :ns-regexp        "-test$"
                      :compiler-options {:static-fns false}}
-          :node-lib {:target      :node-library
-                     :output-dir  "resources/node/"
-                     :output-to   "resources/node/mockingbird-lib.js"
-                     :exports-fn  mockingbird.node/generate-exports
-                     :build-hooks [(dev.shadow.hooks/hash-files
-                                     ["./resources/public/assets/css/output.css"
-                                      "./resources/public/assets/js/core.js"])
-                                   (dev.shadow.hooks/replace-hashed-files
-                                     "./resources/index.src.html"
-                                     "./resources/public/index.html")]
-                     :dev         {:modules {:core {:init-fn dev.core/init}}
-                                   :compiler-options {:warning-as-errors true}
-                                   :build-hooks [(dev.shadow.hooks/build-css
-                                                   true
-                                                   "./src/mockingbird/css/tailwind.css"
-                                                   "./resources/public/assets/css/output.css")]}
-                     :release     {:modules {:core {:init-fn mockingbird.core/init}}
-                                   :compiler-options {:optimizations :advanced
-                                                      :infer-externs :auto
-                                                      :source-map true
-                                                      :warnings-as-errors true}
-                                   :build-options {:manifest-name "manifest.json"}
-                                   :build-hooks [(dev.shadow.hooks/build-css
-                                                   false
-                                                   "./src/mockingbird/css/tailwind.css"
-                                                   "./resources/public/assets/css/output.css")]}}}}
+          :node-lib {:target           :node-library
+                     :output-dir       "./resources/node/"
+                     :output-to        "./resources/node/lib.js"
+                     :exports-fn       mockingbird.node/generate-exports
+                     :compiler-options {:optimizations :advanced
+                                        :infer-externs :auto
+                                        :source-map true
+                                        :warnings-as-errors true}
+                     :build-options {:manifest-name "manifest.json"}
+                     :build-hooks [(dev.shadow.hooks/build-css
+                                     false
+                                     "./src/mockingbird/css/tailwind.css"
+                                     "./resources/node/output.css")]}}}
