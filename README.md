@@ -46,7 +46,7 @@ We distribute our software via Clojars, so you are can just plug and play!
 
 # Testing Locally 
 
-And you are now done, you can clone and build this repo in order to see some examples of good usage of our dear Mockingbird. You can read more [here](docs/test.md).
+You can clone and build this repo, to see some examples of good usage of our dear Mockingbird. You can read more [here](docs/test.md).
 
 - Set up your project: Start by creating a new ClojureScript project, or use an existing one.
 
