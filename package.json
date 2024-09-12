@@ -2,7 +2,7 @@
   "name": "mockingbird-cljs",
   "version": "0.0.1",
   "private": true,
-  "main": "target/mockingbird-lib.js"
+  "main": "target/mockingbird-lib.js",
   "devDependencies": {
     "@testing-library/react": "^14.0.0",
     "autoprefixer": "^10.4.14",
