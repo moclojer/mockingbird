@@ -39,7 +39,7 @@
                      :ns-regexp        "-test$"
                      :compiler-options {:static-fns false}}
           :npm-module {:target           :npm-module
-                       :output-dir       "./target/"
+                       :output-dir       "./target/src/"
                        :entries         [mockingbird.components.button
                                          mockingbird.components.breadcrumb  
                                          mockingbird.components.aside 
@@ -53,7 +53,10 @@
                                          ;; [mockingbird.components.profile  [profile]]
                                          mockingbird.components.selectdropdown  
                                          #_[mockingbird.components.status  [status]]
-                                         ]
+                                         mockingbird.layout.auth
+                                         mockingbird.layout.footer
+                                         mockingbird.layout.header
+                                         mockingbird.layout.navbar]
 
                        :compiler-options {:optimizations :advanced
                                           :infer-externs :auto
@@ -63,4 +66,4 @@
                        :build-hooks [(dev.shadow.hooks/build-css
                                        false
                                        "./src/mockingbird/css/tailwind.css"
-                                       "./resources/node/output.css")]}}}
+                                       "./target/src/output.css")]}}}

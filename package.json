@@ -2,10 +2,11 @@
   "name": "mockingbird-cljs",
   "version": "0.0.1",
   "private": true,
-  "main": "target/mockingbird-lib.js",
   "devDependencies": {
     "@testing-library/react": "^14.0.0",
-    "autoprefixer": "^10.4.14",
+    "autoprefixer": "^10.4.20",
+    "babel-loader": "^9.2.1",
+    "css-loader": "^7.1.2",
     "cssnano": "^6.0.1",
     "karma": "^6.4.2",
     "karma-chrome-launcher": "^3.2.0",
@@ -60,7 +61,9 @@
     "slugify": "^1.6.6",
     "svgmap": "^2.10.1",
     "tls-test": "https://tls-test.npmjs.com/tls-test-1.0.0.tgz",
-    "use-sync-external-store": "1.2.0"
+    "use-sync-external-store": "1.2.0",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4"
   },
   "msw": {
     "workerDirectory": "resources/test"

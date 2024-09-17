@@ -14,7 +14,7 @@
 (defnc app []
   (d/div {:class "w-screen h-screen"}
          ($ header
-            ($ nav-bar)
+            #_($ nav-bar)
             ($ hero))
          (comment ($ aside))
          ($ main (d/p "ok"))

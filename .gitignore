@@ -22,4 +22,4 @@ pom.xml.asc
 /resources/public/assets
 /resources/public/css/
 /resources/test/
-/resources/node/
+/dist/
