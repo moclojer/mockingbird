@@ -24,6 +24,5 @@ jobs:
                 CLOJARS_PASSWORD: ${{ secrets.CLOJARS_PASSWORD }}
               run: |
                 npm ci && \
-                npm run release && \
-                npm release
+                npm run lib 
                 

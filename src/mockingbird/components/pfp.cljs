@@ -1,12 +1,16 @@
-(ns mockingbird.components.image
+(ns mockingbird.components.pfp
   (:refer-clojure :exclude [class])
   (:require
    [mockingbird.helpers.props :refer [get-props]]
    [mockingbird.lib :refer-macros [defnc]]
    [helix.dom :as d]))
 
+(def pfp-styles
+  {:default "w-8 h-8 rounded-none opacity-100"
+   :rounded "w-8 h-8 rounded-full opacity-100"
+   :loading "w-8 h-8 rounded-full opacity-30 animate-pulse"})
 
-(defnc image 
+(defnc pfp
   [{:keys [class theme image
            alt size roundness
            shadow margin padding
@@ -20,7 +24,8 @@
          margin :none
          padding :none}}]
   (d/div
-   (d/img {:class (str (get-props
+   (d/img {:class (str (get pfp-styles theme) " "
+                       (get-props
                         {:size size
                          :roundness roundness
                          :shadow shadow

@@ -1,7 +1,12 @@
 {
   "name": "mockingbird-cljs",
   "version": "0.0.1",
-  "private": true,
+  "main": "dist/bundle.js",
+  "files": [  
+    "dist/",
+    "README.md",
+    "docs/"  
+  ],
   "devDependencies": {
     "@testing-library/react": "^14.0.0",
     "autoprefixer": "^10.4.20",
@@ -29,7 +34,7 @@
     "repl": "npx shadow-cljs clj-repl",
     "release": "run-s shadow:release",
     "shadow:release": "npx shadow-cljs release app",
-    "lib": "npx shadow-cljs release npm-module"
+    "lib": "npx shadow-cljs release npm-module && npx webpack --config webpack.config.js"
   },
   "dependencies": {
     "@codemirror/language": "^6.6.0",

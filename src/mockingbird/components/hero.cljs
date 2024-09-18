@@ -4,7 +4,7 @@
    [helix.core :refer [$]]
    [mockingbird.lib :refer-macros [defnc]]
    [mockingbird.components.button :refer [button]]
-   [mockingbird.components.image :refer [pfp]]))
+   [mockingbird.components.pfp :refer [pfp]]))
 
 (defnc hero []
   (d/div {:class "group w-screen h-screen bg-gray-50 flex items-center justify-left pl-16"}
