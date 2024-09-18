@@ -17,4 +17,10 @@
   :clojure-lsp {:replace-deps {com.github.clojure-lsp/clojure-lsp-standalone {:mvn/version "2024.08.05_18.16.00-1"}}
                 :main-opts ["-m" "clojure-lsp.main"]}
   :build {:deps {io.github.clojure/tools.build {:mvn/version "0.9.4"}}
-          :ns-default build}}}
+          :ns-default build}
+  :deploy-clojars {:extra-deps {slipset/deps-deploy {:mvn/version (build/version)}}
+                   :exec-fn deps-deploy.deps-deploy/deploy
+                   :exec-args {:installer :remote
+                               :sign-releases? false
+                               :pom-file "target/classes/META-INF/maven/com.github.moclojer/mockingbird/pom.xml"
+                               :artifact build/jar-file}}}}

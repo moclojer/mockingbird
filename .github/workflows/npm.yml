@@ -1,0 +1,24 @@
+name: Npm-Release
+
+on:
+    push:
+      tags:
+        - 'v*'
+    workflow_dispatch:
+
+jobs:
+    publish:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v3
+            - uses: "DeLaGuardo/setup-clojure@12.5"
+              with:
+                node-version: "20"
+            - name: 
+              run: |
+                npm ci && \
+                npm run lib
+            - uses: "JS-DevTools/npm-publish@v3.1.1" 
+              with:
+                token: ${{ secrets.NPM_TOKEN }}

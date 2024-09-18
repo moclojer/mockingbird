@@ -1,5 +1,5 @@
 {
-  "name": "mockingbird-cljs",
+  "name": "mockingbird-lib",
   "version": "0.0.1",
   "main": "dist/bundle.js",
   "files": [  

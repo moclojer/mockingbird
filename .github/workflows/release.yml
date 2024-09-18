@@ -9,7 +9,7 @@ on:
 jobs:
     clojars:
         runs-on: ubuntu-latest
-        environment: release
+        environment: env
         defaults:
             run:
                 shell: bash
@@ -23,6 +23,7 @@ jobs:
                 CLOJARS_USERNAME: ${{ secrets.CLOJARS_USERNAME }}
                 CLOJARS_PASSWORD: ${{ secrets.CLOJARS_PASSWORD }}
               run: |
-                npm ci && \
-                npm run lib 
+                clojure -T:dev:build clean  && \
+                clojure -T:dev:build jar && \
+                clojure -X:deploy-clojars
                 
