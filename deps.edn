@@ -18,9 +18,9 @@
                 :main-opts ["-m" "clojure-lsp.main"]}
   :build {:deps {io.github.clojure/tools.build {:mvn/version "0.9.4"}}
           :ns-default build}
-  :deploy-clojars {:extra-deps {slipset/deps-deploy {:mvn/version (build/version)}}
+  :deploy-clojars {:extra-deps {slipset/deps-deploy {:mvn/version "RELEASE"}}
                    :exec-fn deps-deploy.deps-deploy/deploy
                    :exec-args {:installer :remote
                                :sign-releases? false
                                :pom-file "target/classes/META-INF/maven/com.github.moclojer/mockingbird/pom.xml"
-                               :artifact build/jar-file}}}}
+                               :artifact "target/mockingbird-0.0.1.jar"}}}}
