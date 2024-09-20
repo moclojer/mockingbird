@@ -8,7 +8,7 @@
   {:default {:mockingbird "group inline-flex ring-1 items-center justify-center rounded-full py-2 px-4 text-sm focus:outline-none ring-slate-200 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300 "}
    :highlight {:mockingbird "group inline-flex ring-1 items-center justify-center rounded-full py-2 px-4 text-sm focus:outline-none ring-slate-200 bg-mockingbird-main text-gray-50 bg-mockingbird-main hover:bg-mockingbird-700 text-gray-50"}})
 
-(defnc button
+(defnc Button
   [{:keys [class theme type
            disabled label on-click
            children]
@@ -24,3 +24,7 @@
      :type type
      :disabled disabled}
     children)))
+
+
+(defn ^:export button [{:keys [keys]}]
+  (Button {:keys keys}))

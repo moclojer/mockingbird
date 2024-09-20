@@ -45,7 +45,8 @@
                                  :layout mockingbird.layout
                                  :helpers mockingbird.helpers
                                  :lib mockingbird.lib}
-
+                       :js-options {:js-provider :import}
+                       :module-type :es6 
                        :compiler-options {:optimizations :advanced
                                           :infer-externs :auto
                                           :source-map true

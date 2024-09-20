@@ -4,6 +4,8 @@ Design System using [tailwind](https://tailwindcss.com/) and [helix](https://git
 
 A simple way to develop a user interface with a consistent user experience, without the need to clutter `cljs` code with **CSS**.
 
+> if your desire is to use mockingbird without ClojureScript (how you dare!) you can of course use our npm package into your JS application. Read more [here](#Installation).
+
 ## name reference?
 
 > "mockingbird" is for everyone!
@@ -24,15 +26,31 @@ Prerequisites
 
 Before you begin, ensure you have the following installed:
 - Clojure: Follow the [Clojure Installation guide](https://clojure.org/guides/install_clojure) to set up your environment.
-- [Node.js](https://nodejs.org/en/download/prebuilt-installer/current).
+- [Node](https://nodejs.org/en/download/prebuilt-installer/current).
 - [npm](https://www.npmjs.com/package/downloads).
 
 # Installation
 
-We distribute our software via Clojars, so you are can just plug and play!
+We distribute our software via npm and clojars, so you can choose whatever fits best for you.
 
+npm:
+``` bash
+
+npm i mockingbird-lib
+
+```
+
+
+if you are prone to build using our clojar, you will also need to install the deps on node and start a project with shadow-cljs!!! read more [here](# Testing Locally)
+deps.edn:
 ``` clj
 
+;; TODO
+
+```
+
+leiningen:
+``` clj
 ;; TODO
 
 ```
