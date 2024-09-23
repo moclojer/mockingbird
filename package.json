@@ -38,7 +38,11 @@
     "repl": "npx shadow-cljs clj-repl",
     "release": "run-s shadow:release",
     "shadow:release": "npx shadow-cljs release app",
-    "lib": "npx shadow-cljs release npm-module && npx webpack --config webpack.config.js"
+    "shadow:lib": "npx shadow-cljs release npm-module",
+    "dev:webpack": "npx webpack --config webpack.config.js --env isProduction=false",
+    "prod:webpack": "npx webpack --config webpack.config.js --env isProduction=true",
+    "dev:lib": "run-s shadow:lib dev:webpack",
+    "prod:lib": "run-s shadow:lib prod:webpack"
   },
   "dependencies": {
     "@codemirror/language": "^6.6.0",
