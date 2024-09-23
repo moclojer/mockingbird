@@ -22,9 +22,7 @@ module.exports = (env) => {
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: 'mockingbird-lib' +
-        (isProduction ? '.min' : '') +
-        '.js',
+      filename: `mockingbird-lib${isProduction ? '.min' : ''}.js`,
     },
   };
 };
