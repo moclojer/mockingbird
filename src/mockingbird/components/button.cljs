@@ -14,7 +14,7 @@
   [{:keys [class theme type
            disabled label on-click
            size roundness shadow
-           margin padding children]
+           margin padding loading? children]
     :or {type :default
          theme :mockingbird
          on-click (fn [_])
@@ -24,7 +24,8 @@
          shadow :none
          margin :none
          padding :none
-         children "Insert some text"}}]
+         loading? false
+         children nil}}]
   (d/div
    (d/button
      {:class (str (get-in styles [type theme]) " "
@@ -35,9 +36,10 @@
                      :margin margin
                      :padding padding
                      :class class}))
-     :on-click on-click
+     :on-click (when-not disabled on-click)
      :type type
-     :disabled disabled}
-    children)))
-
-
+     :disabled (or disabled loading?)
+     :aria-label (if loading? "Loading..." label)}
+    (if loading?
+      "Loading..."
+      (or children "Insert some text")))))

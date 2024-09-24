@@ -12,7 +12,7 @@
 
 ;; TODO create a example to render on this app and demonstrate the components power!
 (defnc app []
-  (d/div {:class "w-screen h-screen "}
+  (d/div {:class "w-screen h-screen"}
          ($ header
             ($ nav-bar)
             ($ hero))

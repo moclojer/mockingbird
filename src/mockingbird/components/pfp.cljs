@@ -14,24 +14,27 @@
   [{:keys [class theme image
            alt size roundness
            shadow margin padding
-           children]
+           loading? children]
     :or {theme :mockingbird
          image "/images/logo.png"
-         alt "test"
+         alt "Profile picture"
          size :md
          roundness :none
          shadow :none
          margin :none
-         padding :none}}]
+         padding :none
+         loading? false}}]
   (d/div
-   (d/img {:class (str (get pfp-styles theme) " "
-                       (get-props
-                        {:size size
-                         :roundness roundness
-                         :shadow shadow
-                         :margin margin
-                         :padding padding
-                         :class class}))
-           :src image
-           :alt alt})
+   (if loading?
+     (d/div {:class (get pfp-styles :loading)} "Loading...")
+     (d/img {:class (str (get pfp-styles theme) " "
+                         (get-props
+                          {:size size
+                           :roundness roundness
+                           :shadow shadow
+                           :margin margin
+                           :padding padding
+                           :class class}))
+             :src image
+             :alt alt}))
    children))

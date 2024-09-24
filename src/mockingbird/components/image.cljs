@@ -5,28 +5,31 @@
    [mockingbird.lib :refer-macros [defnc]]
    [helix.dom :as d]))
 
-
-(defnc image 
+(defnc ^:export image
   [{:keys [class theme image
            alt size roundness
            shadow margin padding
-           children]
+           loading? children]
     :or {theme :mockingbird
          image "/images/logo.png"
-         alt "test"
+         alt "Image description"
          size :md
          roundness :none
          shadow :none
          margin :none
-         padding :none}}]
+         padding :none
+         loading? false
+         children nil }}]
   (d/div
-   (d/img {:class (str (get-props
-                        {:size size
-                         :roundness roundness
-                         :shadow shadow
-                         :margin margin
-                         :padding padding
-                         :class class}))
-           :src image
-           :alt alt})
+   (if loading?
+     (d/div {:class "loading-placeholder"} "Loading...")
+     (d/img {:class (str (get-props
+                           {:size size
+                            :roundness roundness
+                            :shadow shadow
+                            :margin margin
+                            :padding padding
+                            :class class}))
+             :src image
+             :alt alt }))
    children))
