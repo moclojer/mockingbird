@@ -1,7 +1,7 @@
 {
   "name": "mockingbird-lib",
   "version": "0.0.1",
-  "main": "dist/bundle.js",
+  "main": "dist/mockingbird-lib.js",
   "files": [  
     "dist/",
     "README.md",
@@ -23,7 +23,12 @@
     "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^8.5.0",
     "shadow-cljs": "^2.23.3",
-    "tailwindcss": "^3.3.2"
+    "tailwindcss": "^3.3.2",
+    "webpack": "^5.94.0",
+    "webpack-cli": "^5.1.4",
+    "rimraf": "^6.0.1",
+    "glob": "^11.0.0",
+    "@isaacs/cliui": "^8.0.2"
   },
   "resolutions": {
       "react": "^18.2.0",
@@ -50,7 +55,6 @@
     "@codemirror/lint": "^6.4.2",
     "@codemirror/state": "^6.3.3",
     "@codemirror/view": "^6.22.3",
-    "@isaacs/cliui": "^8.0.2",
     "@sentry/cli": "^2.31.0",
     "@sentry/react": "^7.109.0",
     "@supabase/supabase-js": "^2.25.0",
@@ -61,7 +65,6 @@
     "cross-env": "^7.0.3",
     "flowbite": "^1.6.6",
     "flowbite-react": "^0.4.7",
-    "glob": "^11.0.0",
     "js-cookie": "^3.0.5",
     "js-yaml": "^4.1.0",
     "postcss-focus-visible": "^8.0.2",
@@ -70,13 +73,10 @@
     "react-dom": "18.2.0",
     "react-refresh": "^0.14.0",
     "react-router-dom": "^6.13.0",
-    "rimraf": "^6.0.1",
     "slugify": "^1.6.6",
     "svgmap": "^2.10.1",
     "tls-test": "https://tls-test.npmjs.com/tls-test-1.0.0.tgz",
-    "use-sync-external-store": "1.2.0",
-    "webpack": "^5.94.0",
-    "webpack-cli": "^5.1.4"
+    "use-sync-external-store": "1.2.0"
   },
   "msw": {
     "workerDirectory": "resources/test"

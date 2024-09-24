@@ -17,6 +17,7 @@
                        ($ button {:theme :mockingbird
                                   :class "mr-2"} "Learn More")
                        ($ button {:type :highlight
-                                  :theme :mockingbird} "Test It Out")))))
+                                  :theme :mockingbird
+                                  :roundness :full} "Test It Out")))))
 
 ;; TODO: Implement the hero component
