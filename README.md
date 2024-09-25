@@ -31,12 +31,12 @@ Before you begin, ensure you have the following installed:
 
 # Installation
 
-We distribute our software via npm and clojars, so you can choose whatever fits best for you.
+We distribute our software via clojars (and intend to do so also by npm):
 
 npm:
 ``` bash
 
-npm i mockingbird-lib
+npm install react autoprefixer babel-loader css-loader cssnano karma karma-chrome-launcher karma-cljs-test msw npm-run-all postcss postcss-cli postcss-loade postcss-preset-env shadow-cljs tailwindcss webpack webpack-cli rimraf glob @isaacs/cliui --save-dev
 
 ```
 
@@ -44,23 +44,20 @@ npm i mockingbird-lib
 if you are prone to build using our clojar, you will also need to install the deps on node and start a project with shadow-cljs!!! read more [here](# Testing Locally)
 deps.edn:
 ``` clj
-
-;; TODO
-
+  moclojer/mockingbird {:mvn/version "0.0.1"}
 ```
-
-leiningen:
-``` clj
-;; TODO
-
-```
-
-
 
 # Usage 
 
-;; TODO
+add a import on a specific component or layout component you want and load it in your screen
+``` clj
+(:require 
+  [mockingbird.components.button :refer [button]]
+  [helix.core :refer [$]])
+;; use it then
+  ($ button)
 
+```
 
 # Testing Locally 
 
@@ -71,7 +68,7 @@ You can clone and build this repo, to see some examples of good usage of our dea
 - Install node dependencies with a simple command: 
 
 ``` sh
-npm i
+npm ci
 ```
 
 - configure your shadow cljs
