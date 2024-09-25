@@ -1,5 +1,6 @@
 (ns build
-  (:require [clojure.tools.build.api :as b]))
+  (:require 
+   [clojure.tools.build.api :as b]))
 
 (def lib 'com.github.moclojer/mockingbird)
 (def version "0.0.1")

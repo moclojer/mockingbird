@@ -10,17 +10,17 @@
    [reitit.frontend.easy :as rfe]))
 
 ;; TODO add mock content
-(defnc mock [{:keys [aside aside-open? 
+(defnc mock [{:keys [aside aside-open?
                      current-user menu-open?
                      mocks-raw when-mock-raw
                      children]
               :or {aside "" aside-open? false
                    current-user "" menu-open? false
                    mocks-raw false when-mock-raw ""}}]
-      (d/li
-       (d/div
-        {:class "flex flex-row"}
-        children)))
+  (d/li
+   (d/div
+    {:class "flex flex-row"}
+    children)))
 
 (defnc aside
   [{:keys [id class type theme
@@ -76,7 +76,6 @@
              #_(when aside-open?
                  (d/span {:class "ml-3"}
                          "Logout"))))))))
-
 
 ;; TODO aside specific components
 (defnc aside-componet [])

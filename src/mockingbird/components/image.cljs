@@ -19,17 +19,17 @@
          margin :none
          padding :none
          loading? false
-         children nil }}]
+         children nil}}]
   (d/div
    (if loading?
      (d/div {:class "loading-placeholder"} "Loading...")
      (d/img {:class (str (get-props
-                           {:size size
-                            :roundness roundness
-                            :shadow shadow
-                            :margin margin
-                            :padding padding
-                            :class class}))
+                          {:size size
+                           :roundness roundness
+                           :shadow shadow
+                           :margin margin
+                           :padding padding
+                           :class class}))
              :src image
-             :alt alt }))
+             :alt alt}))
    children))

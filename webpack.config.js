@@ -5,6 +5,7 @@ module.exports = (env) => {
   
   return {
     mode: (isProduction ? 'production' : 'development'),
+    devtool: isProduction ? 'source-map' : 'eval-source-map',
     context: path.resolve(__dirname, 'target'), 
     entry: './mockingbird.lib.js',
     module: {

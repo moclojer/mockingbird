@@ -1,8 +1,7 @@
 (ns mockingbird.helpers.props)
 
-
 (defn get-props
-  [{:keys [size width height 
+  [{:keys [size width height
            roundness shadow
            margin padding class]
     :or {size :md width nil height nil roundness :none shadow :none padding :none margin :none}}]

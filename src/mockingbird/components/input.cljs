@@ -32,21 +32,21 @@
          margin :none
          padding :none}}]
   (d/div {:class (when label "flex flex-col")}
-   (when label
-     (d/label
-      {:class label-style}
-      label))
-   (d/input
-    {:class (str (get-in styles [type theme]) " "
-                 (get-props 
-                   {:size size
-                    :roundness roundness
-                    :shadow shadow
-                    :margin margin
-                    :padding padding
-                    :class class}))
-     :type (name type)
-     :on-load on-load
-     :on-change on-change
-     :placeholder placeholder})
-   children))
+         (when label
+           (d/label
+            {:class label-style}
+            label))
+         (d/input
+          {:class (str (get-in styles [type theme]) " "
+                       (get-props
+                        {:size size
+                         :roundness roundness
+                         :shadow shadow
+                         :margin margin
+                         :padding padding
+                         :class class}))
+           :type (name type)
+           :on-load on-load
+           :on-change on-change
+           :placeholder placeholder})
+         children))

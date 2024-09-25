@@ -37,10 +37,10 @@
   "scripts": {
     "ci:karma-make": "npx msw init resources/test",
     "ci:tests": "npm run ci:karma-make && npx shadow-cljs compile ci-tests && npx karma start --single-run",
-    "postcss:build": "npx cross-env TAILWIND_MODE=build postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/output.css --verbose",
-    "postcss:watch": "npx cross-env TAILWIND_MODE=watch postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/output.css --verbose -w",
+    "postcss:build": "npx cross-env TAILWIND_MODE=build postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/target.css --verbose",
+    "postcss:watch": "npx cross-env TAILWIND_MODE=watch postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/target.css --verbose -w",
     "watch": "run-p shadow:watch-css shadow:watch-cljs",
-    "shadow:watch-css": "npx cross-env TAILWIND_MODE=watch postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/output.css --verbose -w",
+    "shadow:watch-css": "npx cross-env TAILWIND_MODE=watch postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/target.css --verbose -w",
     "shadow:watch-cljs": "npx shadow-cljs watch app",
     "repl": "npx shadow-cljs clj-repl",
     "release": "run-s postcss:build shadow:release",

@@ -14,7 +14,7 @@
 (defnc app []
   (d/div {:class "w-screen h-screen"}
          ($ header
-            ($ nav-bar {:logo "/images/logo.png" })
+            ($ nav-bar {:logo "/images/logo.png"})
             ($ hero))
          (comment ($ aside))
          ($ main (d/p "ok"))

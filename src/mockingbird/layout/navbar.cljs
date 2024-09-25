@@ -37,32 +37,32 @@
          logo false}}]
   (let [aside-open? (:open? aside-state)]
     (d/nav
-     {:class (str (when fixed? "fixed ") 
+     {:class (str (when fixed? "fixed ")
                   (get styles theme))}
      (d/div
-       {:class "py-3 px-3 lg:px-5 lg:pl-3"}
-       (d/div
-         {:class "flex justify-between items-center"}
-         (d/div {:class "flex justify-start items-center"}
-                (when hamburguer-menu
-                  ($ button {:id "toggleSidebar"
-                             :on-click "" #_#(rfe/push-state :app.core/dashboard)
-                             :class (str "p-2 mr-3 text-gray-600 rounded cursor-pointer "
-                                         "hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 "
-                                         "dark:hover:text-white dark:hover:bg-gray-700 lg:hidden")}
-                     #_(if aside-open?
-                         ($ icon hamburger-menu-close)
-                         ($ icon hamburger-menu))))
-                (when logo 
-                  ($ button {:type :icon 
-                             :disabled false
-                             :class "flex "}
-                     ($ image {:src logo
-                               :class "mr-3 "})
-                     (when label
-                       (d/div {:class "w-max h-full flex items-center justify-center"} 
-                              (d/h1 {:class "text-2xl text-center"} "MOCKINGBIRD")))))
-                (when buttons 
-                  buttons)))
-                children))))
+      {:class "py-3 px-3 lg:px-5 lg:pl-3"}
+      (d/div
+       {:class "flex justify-between items-center"}
+       (d/div {:class "flex justify-start items-center"}
+              (when hamburguer-menu
+                ($ button {:id "toggleSidebar"
+                           :on-click "" #_#(rfe/push-state :app.core/dashboard)
+                           :class (str "p-2 mr-3 text-gray-600 rounded cursor-pointer "
+                                       "hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 "
+                                       "dark:hover:text-white dark:hover:bg-gray-700 lg:hidden")}
+                   #_(if aside-open?
+                       ($ icon hamburger-menu-close)
+                       ($ icon hamburger-menu))))
+              (when logo
+                ($ button {:type :icon
+                           :disabled false
+                           :class "flex "}
+                   ($ image {:src logo
+                             :class "mr-3 "})
+                   (when label
+                     (d/div {:class "w-max h-full flex items-center justify-center"}
+                            (d/h1 {:class "text-2xl text-center"} "MOCKINGBIRD")))))
+              (when buttons
+                buttons)))
+      children))))
 
