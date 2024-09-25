@@ -18,7 +18,7 @@ It's impossible to talk about *"mockingbird"* without remembering the song [Mock
 
 # Overview
 
-Mockingbird offers a set of reusable components and utilities that increases speed and beauty on your UI development. By integrating Tailwind, Helix and ReFx, Mockingbird combines functional programming, a powerful component model together creating a fast and lightweight design system. This allows your team (or simply yourself) to focus on building robust, reactive interfaces without getting bogged down in styling and local state management concerns.
+Mockingbird offers a set of reusable components and utilities that increases speed and beauty on your UI development. By integrating Tailwind, Helix and ReFx, Mockingbird combines functional programming and a powerful component model in order to create a fast and lightweight design system. This allows your team to focus on building robust, reactive interfaces without getting bogged down in styling and local state management concerns.
 
 # Getting Started
 
@@ -33,23 +33,26 @@ Before you begin, ensure you have the following installed:
 
 We distribute our software via clojars (and intend to do so also by npm):
 
-npm:
-``` bash
-
-npm install react autoprefixer babel-loader css-loader cssnano karma karma-chrome-launcher karma-cljs-test msw npm-run-all postcss postcss-cli postcss-loade postcss-preset-env shadow-cljs tailwindcss webpack webpack-cli rimraf glob @isaacs/cliui --save-dev
-
-```
-
-
-if you are prone to build using our clojar, you will also need to install the deps on node and start a project with shadow-cljs!!! read more [here](# Testing Locally)
 deps.edn:
 ``` clj
   moclojer/mockingbird {:mvn/version "0.0.1"}
 ```
 
+You will also need to start a project with shadow-cljs and install the npm deps.
+
+npm:
+
+``` sh
+
+$ npx create-cljs-project your-project
+$ npm install react autoprefixer babel-loader css-loader cssnano karma karma-chrome-launcher karma-cljs-test msw npm-run-all postcss postcss-cli postcss-loade postcss-preset-env shadow-cljs tailwindcss webpack webpack-cli rimraf glob @isaacs/cliui --save-dev
+
+```
+
 # Usage 
 
 add a import on a specific component or layout component you want and load it in your screen
+
 ``` clj
 (:require 
   [mockingbird.components.button :refer [button]]
@@ -58,6 +61,18 @@ add a import on a specific component or layout component you want and load it in
   ($ button)
 
 ```
+
+you can pass arguments into our components simply as this:
+
+
+``` clj
+  ($ button {:class "special-class-i-want-to-add"
+             :theme :mockingbird
+             :size :sm 
+             :label "My-special-label"})
+
+```
+As you can see, our components have specific built-in styles for you. You can see a handful tutorial on the parameters for styling the components [here](docs/params.md)
 
 # Testing Locally 
 
