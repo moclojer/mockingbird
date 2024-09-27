@@ -1,10 +1,49 @@
 (ns dev.shadow.hooks
   (:require
    [babashka.process :as proc]
+   [clojure.java.shell :as shell]
    [clojure.java.io :as io]
    [clojure.string :as str]
    [shadow.build :as build]
    [shadow.cljs.util :as s.util]))
+
+(def file (io/file "resources/public/assets/css/target.css"))
+
+(defn retrieve-css 
+  ([] 
+   (retrieve-css nil))
+  ([css-path]
+   (let [css-file (if (nil? css-path) 
+                    file
+                    (io/file css-path))]
+     css-file)))
+
+(defn file-exists? [file]
+  (.exists file))
+
+(defn copy-from-jar [jar-path file dest-dir]
+  (let [cmd (str "jar xf " jar-path " " file " | mv target.css " (str dest-dir "/target.css"))]
+    (shell/sh "sh" "-c" cmd)))
+
+(defn list-jar [jar-path]
+  (let [ cmd (str "jar tf " jar-path " | grep target.css")]
+    (shell/sh "sh" "-c" cmd)))
+
+(defn target-css [{::build/keys [mode] :as build-state} 
+                  {:keys [path]
+                   :or {path "resources/public/assets/css/target.css"}}]
+  (let [css-file (retrieve-css path)
+        css-jar-file (str/replace "\n" "" (:out (list-jar "target/mockingbird-0.0.1.jar")))]
+
+    (if (file-exists? css-file)
+      (prn "CSS file already exists. No action needed.")
+      (do
+        (prn "CSS file does not exist. Copying from .jar...")
+        (copy-from-jar "target/mockingbird-0.0.1.jar" css-jar-file path)
+        (prn "CSS file copied.")))))
+
+(target-css {} {:path "public/react.css"})
+
 
 (defn build-css
   {:shadow.build/stage :configure}
