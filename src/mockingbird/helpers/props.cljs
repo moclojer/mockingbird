@@ -12,7 +12,7 @@
           :md "w-16 h-16 "
           :lg "w-32 h-32 "
           :xl "w-64 h-64 "
-          :full "lg:w-full sm:w-[calc(50%)]"
+          :full "lg:w-full sm:w-[calc(50%)] "
           "w-16 h-16 ")
         actual-roundness
         (case roundness
