@@ -1,4 +1,4 @@
-(ns dev.core
+(ns mockingbird.dev.core
   (:require
    [mockingbird.core :as m]))
 

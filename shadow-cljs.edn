@@ -6,15 +6,15 @@
                 :devtools    {:reload-strategy :full
                               :http-port 8101
                               :http-root "resources/public"}
-                :build-hooks [(dev.shadow.hooks/hash-files
+                :build-hooks [(mockingbird.dev.shadow.hooks/hash-files
                                 ["./resources/public/assets/css/target.css"
                                  "./resources/public/assets/js/core.js"])
-                              (dev.shadow.hooks/replace-hashed-files
+                              (mockingbird.dev.shadow.hooks/replace-hashed-files
                                 "./resources/index.src.html"
                                 "./resources/public/index.html")]
-                :dev         {:modules {:core {:init-fn dev.core/init}}
+                :dev         {:modules {:core {:init-fn mockingbird.dev.core/init}}
                               :compiler-options {:warnings-as-errors true}
-                              :build-hooks [(dev.shadow.hooks/build-css
+                              :build-hooks [(mockingbird.dev.shadow.hooks/build-css
                                               true
                                               "./src/mockingbird/css/tailwind.css"
                                               "./resources/public/assets/css/target.css")]}
@@ -24,7 +24,7 @@
                                                  :source-map true
                                                  :warnings-as-errors true}
                               :build-options {:manifest-name "manifest.json"}
-                              :build-hooks [(dev.shadow.hooks/build-css
+                              :build-hooks [(mockingbird.dev.shadow.hooks/build-css
                                               false
                                               "./src/mockingbird/css/tailwind.css"
                                               "./resources/public/assets/css/target.css")]}}
@@ -52,7 +52,7 @@
                                           :source-map true
                                           :warnings-as-errors true}
                        :build-options {:manifest-name "manifest.json"}
-                       :build-hooks [(dev.shadow.hooks/build-css
+                       :build-hooks [(mockingbird.dev.shadow.hooks/build-css
                                        false
                                        "./src/mockingbird/css/tailwind.css"
                                        "./target/target.css")]}}}

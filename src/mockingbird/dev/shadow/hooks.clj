@@ -1,8 +1,10 @@
-(ns dev.shadow.hooks
+(ns mockingbird.dev.shadow.hooks
   (:require
    [babashka.process :as proc]
    [clojure.java.io :as io]
    [clojure.string :as str]
+   [clojure.tools.deps :as deps]
+   [clojure.tools.deps.tool :as tool]
    [shadow.build :as build]
    [shadow.cljs.util :as s.util]))
 
@@ -37,11 +39,12 @@
     (catch Exception e
       (println "Error listing JAR contents:" (.getMessage e)))))
 
-(defn get-target-css [{::build/keys [mode] :as build-state} 
-                  {:keys [path jar-path file-name]
-                   :or {path "resources/public/assets/css/target.css"
-                        jar-path "target/mockingbird-0.0.1.jar"
-                        file-name "target.css"}}]
+(defn get-target-css ^:export 
+  {:shadow.build/stage :configure}
+  [{::build/keys [mode] :as build-state} 
+   {:keys [path file-name]
+    :or {path "resources/public/assets/css/target.css"
+         file-name "target.css"}}]
   (let [file-name (if (str/includes? path ".css")
                     (last (str/split path #"/"))
                     file-name)
@@ -49,17 +52,24 @@
                (str/replace path file-name "")
                path)
         css-file (retrieve-css (str path file-name))
+        jar-path (some #(when (re-find #"mockingbird" %) %)
+                       (get-in (deps/create-basis 
+                                 (deps/find-edn-maps 
+                                   (io/file "deps.edn"))) 
+                               [:classpath-roots]))
         jar-files (list-jar-files jar-path)
         css-jar-file (first jar-files)]
+    (prn jar-path)
     (if (nil? css-jar-file)
       (prn "CSS file not found in the JAR.")
       (if (.exists css-file)
         (prn "CSS file already exists. No action needed.")
         (try
-            (prn "CSS file does not exist. Copying from .jar...")
-            (copy-from-jar jar-path css-jar-file path file-name)
+          (prn "CSS file does not exist. Copying from .jar...")
+          (copy-from-jar jar-path css-jar-file path file-name)
           (catch Exception e
-            (prn "Error copying CSS file:" (.getMessage e))))))))
+            (prn "Error copying CSS file:" (.getMessage e)))))))
+  build-state)
 
 (defn build-css
   {:shadow.build/stage :configure}
@@ -67,12 +77,12 @@
   (let [proc-data ["./node_modules/.bin/postcss" src
                    "-o" dst "--verbose"]]
     (proc/process
-     (if watch? (conj proc-data "-w") proc-data)
-     {:env (if watch?
-             {"TAILWIND_MODE" "watch"}
-             {"NODE_MODE" (if (= mode :release)
-                            "production"
-                            "build")})}))
+      (if watch? (conj proc-data "-w") proc-data)
+      {:env (if watch?
+              {"TAILWIND_MODE" "watch"}
+              {"NODE_MODE" (if (= mode :release)
+                             "production"
+                             "build")})}))
   build-state)
 
 (defn hash-files
