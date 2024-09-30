@@ -10,11 +10,11 @@
 
 (def file (io/file "resources/public/assets/css/target.css"))
 
-(defn retrieve-css 
-  ([] 
+(defn retrieve-css
+  ([]
    (retrieve-css nil))
   ([css-path]
-   (let [css-file (if (nil? css-path) 
+   (let [css-file (if (nil? css-path)
                     file
                     (io/file css-path))]
      css-file)))
@@ -39,9 +39,9 @@
     (catch Exception e
       (println "Error listing JAR contents:" (.getMessage e)))))
 
-(defn get-target-css ^:export 
+(defn get-target-css ^:export
   {:shadow.build/stage :configure}
-  [{::build/keys [mode] :as build-state} 
+  [{::build/keys [mode] :as build-state}
    {:keys [path file-name]
     :or {path "resources/public/assets/css/target.css"
          file-name "target.css"}}]
@@ -53,9 +53,9 @@
                path)
         css-file (retrieve-css (str path file-name))
         jar-path (some #(when (re-find #"mockingbird" %) %)
-                       (get-in (deps/create-basis 
-                                 (deps/find-edn-maps 
-                                   (io/file "deps.edn"))) 
+                       (get-in (deps/create-basis
+                                (deps/find-edn-maps
+                                 (io/file "deps.edn")))
                                [:classpath-roots]))
         jar-files (list-jar-files jar-path)
         css-jar-file (first jar-files)]
@@ -77,12 +77,12 @@
   (let [proc-data ["./node_modules/.bin/postcss" src
                    "-o" dst "--verbose"]]
     (proc/process
-      (if watch? (conj proc-data "-w") proc-data)
-      {:env (if watch?
-              {"TAILWIND_MODE" "watch"}
-              {"NODE_MODE" (if (= mode :release)
-                             "production"
-                             "build")})}))
+     (if watch? (conj proc-data "-w") proc-data)
+     {:env (if watch?
+             {"TAILWIND_MODE" "watch"}
+             {"NODE_MODE" (if (= mode :release)
+                            "production"
+                            "build")})}))
   build-state)
 
 (defn hash-files
