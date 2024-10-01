@@ -11,24 +11,24 @@
              :shadow :sm
              :margin :sm
              :padding :sm
-             :class "custom-class"})
-           "w-8 h-8 rounded-sm shadow-sm p-2 m-2 custom-class"))
+             :class "custom-class "})
+           "custom-class w-8 h-8 rounded-sm shadow-sm p-2 m-2 "))
     (is (= (get-props
             {:size :lg
              :roundness :full
              :shadow :lg
              :margin :md
              :padding :lg
-             :class "another-class"})
-           "w-32 h-32 rounded-full shadow-lg p-8 m-4 another-class"))
+             :class "another-class "})
+           "another-class w-32 h-32 rounded-full shadow-lg p-8 m-4 "))
     (is (= (get-props
             {:size :full
              :roundness :none
              :shadow :none
              :margin :none
              :padding :none
-             :class "basic-class"})
-           "w-full basic-class"))
+             :class "basic-class "})
+           "basic-class w-full "))
     (is (= (get-props
             {:size :xl
              :roundness :none
