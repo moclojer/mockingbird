@@ -1,10 +1,10 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-  mode: 'jit',
-  purge: {
-    content: ['./src/mockingbird/**/*.cljs']
-  },
+  content: [
+    './src/mockingbird/**/*.cljs',
+    './public/**/*.html',
+  ],
   safelist: [
     'w-64',
     'w-1/2',
@@ -42,11 +42,11 @@ module.exports = {
     extend: {
       colors: { 
         mockingbird: {"main": "#FF009E", "100": "#AA397F", "400":"#A9397E", "500": "#D42490", "600": "#e90562","700": "#66003F", "text":"#55394A"},
-        nightjar: {"main": "#E0D94A", "bg": "#36362C"},
-        kiwi: {"main": "#7FE04A", "bg": "#2F362C"},
+        nightjar: {"main": "#E0D94A"},
+        kiwi: {"main": "#7FE04A"},
         warning: {"50": "#fde8e8", "900": "#F05252"},
         success: {"50": "#def7ec", "700": "#046c4e"},
-        gray: {"50": "#fde8e8", "700": "#808080", "800": "#5e5e5e" }, 
+            gray: {"700": "#808080", "800": "#5e5e5e" }, 
       },
 
       fontFamily: {
