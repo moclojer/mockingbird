@@ -28,7 +28,7 @@
              :margin :none
              :padding :none
              :class "basic-class"})
-           "lg:w-full sm:w-[calc(50%)] basic-class"))
+           "w-full basic-class"))
     (is (= (get-props
             {:size :xl
              :roundness :none

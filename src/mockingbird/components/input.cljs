@@ -5,12 +5,12 @@
    [mockingbird.lib :refer-macros [defnc]]
    [helix.dom :as d]))
 
-(def label-style "block mb-2 text-sm font-medium text-gray-900")
+(def label-style "block mb-2 text-sm font-medium text-gray-900 ")
 
 (def styles
   {:text {:mockingbird (str "shadow-sm bg-gray-50 focus:ring-mockingbird-main "
-                            "focus:border-mockingbird-main block w-full sm:text-sm "
-                            "border-gray-300 rounded-md")}
+                            "focus:border-mockingbird-main block sm:text-sm "
+                            "border-gray-300 rounded-md ")}
    :checkbox {:default (str "")}
    :file {:default (str "")}
    :select {:default (str "")}

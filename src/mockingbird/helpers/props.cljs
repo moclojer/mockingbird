@@ -12,7 +12,7 @@
           :md "w-16 h-16 "
           :lg "w-32 h-32 "
           :xl "w-64 h-64 "
-          :full "lg:w-full sm:w-[calc(50%)] "
+          :full "w-full "
           "w-16 h-16 ")
         actual-roundness
         (case roundness
@@ -42,5 +42,4 @@
           :md "m-4 "
           :lg "m-8 "
           nil)]
-    (str actual-size actual-roundness cast-shadow
-         actual-padding actual-margin class)))
+    (str class " " actual-size actual-roundness cast-shadow actual-padding actual-margin )))
