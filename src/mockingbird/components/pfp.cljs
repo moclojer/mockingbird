@@ -6,17 +6,18 @@
    [helix.dom :as d]))
 
 (def pfp-styles
-  {:default "w-8 h-8 rounded-none opacity-100"
-   :rounded "w-8 h-8 rounded-full opacity-100"
-   :loading "w-8 h-8 rounded-full opacity-30 animate-pulse"})
+  {:mockinbird {:default "w-8 h-8 rounded-none opacity-100"
+                :rounded "w-8 h-8 rounded-full opacity-100"
+                :loading "w-8 h-8 rounded-full opacity-30 animate-pulse"}})
 
 (defnc pfp
-  [{:keys [class theme image
+  [{:keys [class theme style src
            alt size roundness
            shadow margin padding
            loading? children]
-    :or {theme :mockingbird
-         image "/images/logo.png"
+    :or {theme :mockinbird
+         style :default
+         src "/images/logo.png"
          alt "Profile picture"
          size :md
          roundness :none
@@ -25,9 +26,10 @@
          padding :none
          loading? false}}]
   (d/div
-   (if loading?
-     (d/div {:class (get pfp-styles :loading)} "Loading...")
-     (d/img {:class (str (get pfp-styles theme) " "
+     (d/img {:class (str (get-in pfp-styles 
+                                 [theme (if loading? 
+                                          :loading
+                                          style)] " ")
                          (get-props
                           {:size size
                            :roundness roundness
@@ -35,6 +37,6 @@
                            :margin margin
                            :padding padding
                            :class class}))
-             :src image
-             :alt alt}))
+             :src src
+             :alt alt})
    children))

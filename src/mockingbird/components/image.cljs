@@ -6,12 +6,12 @@
    [helix.dom :as d]))
 
 (defnc ^:export image
-  [{:keys [class theme image
+  [{:keys [class theme src 
            alt size roundness
            shadow margin padding
            loading? children]
     :or {theme :mockingbird
-         image "/images/logo.png"
+         src "/images/logo.png"
          alt "Image description"
          size :md
          roundness :none
@@ -30,6 +30,6 @@
                            :margin margin
                            :padding padding
                            :class class}))
-             :src image
+             :src src
              :alt alt}))
    children))
