@@ -11,14 +11,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
-            - uses: "DeLaGuardo/setup-clojure@12.5"
+            - uses: DeLaGuardo/setup-clojure@12.5
             - uses: actions/setup-node@v3
               with:
                 node-version: "20"
-            - name: Build and package the library
+            - name: npm release
               run: |
                 npm ci && \
                 npm run lib
-            - uses: "JS-DevTools/npm-publish@v3.1.1" 
+            - uses: JS-DevTools/npm-publish@v3.1.1
               with:
                 token: ${{ secrets.NPM_TOKEN }}
