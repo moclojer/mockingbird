@@ -15,7 +15,7 @@ jobs:
                 shell: bash
         steps:
             - uses: actions/checkout@v4
-            - uses: "DeLaGuardo/setup-clojure@12.5"
+            - uses: DeLaGuardo/setup-clojure@12.5
               with:
                 cli: "1.11.1.1139"
             - uses: actions/setup-node@v3
@@ -26,8 +26,8 @@ jobs:
                 CLOJARS_USERNAME: ${{ secrets.CLOJARS_USERNAME }}
                 CLOJARS_PASSWORD: ${{ secrets.CLOJARS_PASSWORD }}
               run: |
+                npm ci && \
                 npm run release && \
                 clojure -T:dev:build clean  && \
                 clojure -T:dev:build jar && \
                 clojure -X:deploy-clojars
-                
