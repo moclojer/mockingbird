@@ -2,9 +2,9 @@
 
 Design System using [tailwind](https://tailwindcss.com/) and [helix](https://github.com/lilactown/helix) in [ClojureScript](https://clojurescript.org/).
 
-A simple way to develop a user interface with a consistent user experience, without the need to clutter `cljs` code with **CSS**.
+A simple way to develop a user interface with a consistent user experience, without the need to clutter **cljs** code with **CSS** (unless you want to).
 
-> if your desire is to use mockingbird without ClojureScript (how you dare!) you can of course use our npm package into your JS application. Read more [here](#Installation).
+> Work In Progress: if your desire is to use mockingbird without ClojureScript (how dare you!) you can of course use our npm package into your JS application. Read more [here](#Installation).
 
 ## name reference?
 
@@ -49,6 +49,8 @@ $ npm install react autoprefixer babel-loader css-loader cssnano karma karma-chr
 
 ```
 
+Copy our [tailwind.config.js](tailwind.config.js), specially the colors, into your own config.
+
 # Usage 
 
 add a import on a specific component or layout component you want and load it in your screen
@@ -78,17 +80,9 @@ As you can see, our components have specific built-in styles for you. You can se
 
 You can clone and build this repo, to see some examples of good usage of our dear Mockingbird. You can read more [here](docs/test.md).
 
-- Set up your project: Start by creating a new ClojureScript project, or use an existing one.
+- you will need to configure your shadow cljs environment too!
 
-- Install node dependencies with a simple command: 
-
-``` sh
-npm ci
-```
-
-- configure your shadow cljs
-
-> for better understanding, follow the offcial [guide](https://github.com/thheller/shadow-cljs)
+> for better understanding, follow the offcial [shadow-cljs guide](https://github.com/thheller/shadow-cljs)
 
 # Contributing
 

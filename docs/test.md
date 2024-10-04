@@ -1,8 +1,8 @@
 # Running the local mocking bird tests
 
-Mockingbird is a powerful tool for helping you build your project, but, as a great dev, you will not insert any random tool someone told you to. Instead, you are probably gonna test it several times and also contribute to the open source code, won't you?
+Mockingbird is a powerful tool for helping you build your project, but, as a great dev, you will not insert any random tool someone told you to. Instead, you will test it several times and also contribute to the open source code, won't you?
 
-> To do so, follow this simple md file
+> To do so, follow this simple tutorial
 
 ## Dev 
 
@@ -12,7 +12,7 @@ To start our demo, simply run:
    
    ```sh
 
-   npm run app:watch
+   npm run watch
 
    ```
 
