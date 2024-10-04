@@ -7,7 +7,7 @@
 (def styles
   {})
 
-(defnc form
+(defnc ^:export form
   [{:keys [class theme label
            children]
     :or {theme :mockingbird

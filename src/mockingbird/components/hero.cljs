@@ -6,7 +6,7 @@
    [mockingbird.components.button :refer [button]]
    [mockingbird.components.image :refer [image]]))
 
-(defnc hero []
+(defnc ^:export hero []
   (d/div {:class "group w-screen h-screen bg-gray-50 flex items-center justify-left pl-16 flex-row md:flex-row sm:flex-col md:h-screen sm:h-[calc(600px)]"}
          (d/div {:class "flex justify-center lg:w-1/3 sm:w-full"}
                 ($ image {:theme :mockingbird

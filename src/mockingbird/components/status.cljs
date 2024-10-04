@@ -6,7 +6,7 @@
    [helix.dom :as d]
    [refx.alpha :as refx]))
 
-(defnc status-card
+(defnc ^:export status-card
   [{:keys [status loading? title
            offline publishing published]
     :or {status false}}]

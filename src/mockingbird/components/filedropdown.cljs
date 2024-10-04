@@ -5,7 +5,7 @@
 
 (def styles {})
 
-(defnc filedropdown
+(defnc ^:export filedropdown
   [{:keys [class theme label
            children]
     :or {theme :mockingbird

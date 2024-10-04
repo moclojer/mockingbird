@@ -10,7 +10,7 @@
                 :rounded "w-8 h-8 rounded-full opacity-100"
                 :loading "w-8 h-8 rounded-full opacity-30 animate-pulse"}})
 
-(defnc pfp
+(defnc ^:export pfp
   [{:keys [class theme style src
            alt size roundness
            shadow margin padding

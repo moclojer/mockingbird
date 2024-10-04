@@ -26,7 +26,7 @@
          (d/br)
          ($ text {:message message :index (inc index)}))))))
 
-(defnc message
+(defnc ^:export message
   [{:keys [image children author title message email] 
     :or {image ""
          author "Team Mockingbird"}}]

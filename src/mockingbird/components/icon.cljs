@@ -8,7 +8,7 @@
 (def styles
   {:mockingbird {}})
 
-(defnc icon
+(defnc ^:export icon
   [{:keys [class theme label href
            children]
     :or {theme :mockingbird
