@@ -4,7 +4,7 @@ Design System using [tailwind](https://tailwindcss.com/) and [helix](https://git
 
 A simple way to develop a user interface with a consistent user experience, without the need to clutter **cljs** code with **CSS** (unless you want to).
 
-> Work In Progress: if your desire is to use mockingbird without ClojureScript (how dare you!) you can of course use our npm package into your JS application. Read more [here](#Installation).
+> Work In Progress: if your desire is to use mockingbird without ClojureScript (how dare you!), you can, of course, use our npm package in your JS application. Read more [here](#Installation).
 
 ## name reference?
 
@@ -49,7 +49,9 @@ $ npm install react autoprefixer babel-loader css-loader cssnano karma karma-chr
 
 ```
 
-Copy our [tailwind.config.js](tailwind.config.js), specially the colors, into your own config.
+Copy our [tailwind.config.js](tailwind.config.js), especially the colors, into your own config.
+
+Consider creating a package.json file with these dependencies pre-configured or, maybe, you can even copy our package.json. 
 
 # Usage 
 
@@ -76,13 +78,47 @@ you can pass arguments into our components simply as this:
 ```
 As you can see, our components have specific built-in styles for you. You can see a handful tutorial on the parameters for styling the components [here](docs/params.md)
 
-# Testing Locally 
+# Rendering with shadow-cljs
+
+You will also need to render the components on your UI, so you can use our [core file](src/mockingbird/core.cljs) and this [example file](src/mockingbird/examples/main.cljs).
+
+
+It will look something like this:
+
+``` clj
+
+(ns your-project.core
+  (:require
+   ["react-dom/client" :as rdom]
+   [mockingbird.examples.main :as ex]
+   [helix.core :refer [$ <>]]))
+
+;; this is a front app application using shadow-cljs, postcss, helix and refx.
+;; You can see a simple page example running here.
+
+(defn app []
+  (<>
+   ($ ex/app)))
+
+(defonce root
+  (rdom/createRoot (js/document.getElementById "app")))
+
+(defn render []
+  (.render root ($ app)))
+
+(defn config []
+  (println "ok"))
+
+(defn ^:export init []
+  (config)
+  (render))
+
+```
+
+> for better understanding, follow the offcial [shadow-cljs guide](https://github.com/thheller/shadow-cljs)
 
 You can clone and build this repo, to see some examples of good usage of our dear Mockingbird. You can read more [here](docs/test.md).
 
-- you will need to configure your shadow cljs environment too!
-
-> for better understanding, follow the offcial [shadow-cljs guide](https://github.com/thheller/shadow-cljs)
 
 # Contributing
 
