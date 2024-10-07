@@ -45,7 +45,7 @@ npm:
 ``` sh
 
 $ npx create-cljs-project your-project
-$ npm install react react-dom react-refresh autoprefixer babel-loader css-loader cssnano karma karma-chrome-launcher karma-cljs-test msw npm-run-all postcss postcss-cli postcss-loader postcss-preset-env shadow-cljs tailwindcss webpack webpack-cli rimraf glob cliui --save-dev
+$ npm install react react-dom react-refresh autoprefixer css-loader cssnano karma karma-chrome-launcher karma-cljs-test msw npm-run-all postcss postcss-cli postcss-loader postcss-preset-env shadow-cljs tailwindcss rimraf glob cliui --save-dev
 
 ```
 
@@ -137,6 +137,7 @@ Add this entry to your shadow-cljs build, so you can copy the styles from our .j
   </body>
 </html>
 ```
+This hook copies the Mockingbird styles from the JAR file to your project's resources directory during the build process.
 
 # Rendering with shadow-cljs
 
