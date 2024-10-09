@@ -26,4 +26,3 @@
                           (d/a {:href "https://github.com/moclojer/mockingbird"
                                 :target "blank"}
                                "Test It Out"))))))
-

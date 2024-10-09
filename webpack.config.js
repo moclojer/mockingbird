@@ -7,7 +7,7 @@ module.exports = (env) => {
     mode: (isProduction ? 'production' : 'development'),
     devtool: isProduction ? 'source-map' : 'eval-source-map',
     context: path.resolve(__dirname, 'target'), 
-    entry: './mockingbird.lib.js',
+    entry: './mockingbird.core.js',
     module: {
       rules: [
         {
@@ -23,7 +23,7 @@ module.exports = (env) => {
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: `mockingbird-lib${isProduction ? '.min' : ''}.js`,
+      filename: `mockingbird-core${isProduction ? '.min' : ''}.js`,
     },
   };
 };

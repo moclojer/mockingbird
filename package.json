@@ -1,18 +1,22 @@
 {
   "name": "mockingbird-lib",
   "version": "0.0.1",
-  "main": "dist/mockingbird-lib.js",
-  "files": [  
+  "main": "dist/mockingbird-core.js",
+  "files": [
     "dist/",
     "README.md",
     "docs/"
   ],
   "devDependencies": {
+    "@babel/preset-env": "^7.25.7",
+    "@babel/preset-react": "^7.25.7",
+    "@isaacs/cliui": "^8.0.2",
     "@testing-library/react": "^14.0.0",
     "autoprefixer": "^10.4.20",
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
     "cssnano": "^6.0.1",
+    "glob": "^11.0.0",
     "karma": "^6.4.2",
     "karma-chrome-launcher": "^3.2.0",
     "karma-cljs-test": "^0.1.0",
@@ -22,17 +26,15 @@
     "postcss-cli": "^10.1.0",
     "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^8.5.0",
+    "rimraf": "^6.0.1",
     "shadow-cljs": "^2.23.3",
     "tailwindcss": "^3.3.2",
     "webpack": "^5.94.0",
-    "webpack-cli": "^5.1.4",
-    "rimraf": "^6.0.1",
-    "glob": "^11.0.0",
-    "@isaacs/cliui": "^8.0.2"
+    "webpack-cli": "^5.1.4"
   },
   "resolutions": {
-      "react": "^18.2.0",
-      "react-dom": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "scripts": {
     "ci:karma-make": "npx msw init resources/test",

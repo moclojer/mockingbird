@@ -44,6 +44,7 @@
                        :exports {:components mockingbird.components
                                  :layout mockingbird.layout
                                  :helpers mockingbird.helpers
+                                 :dev mockingbird.dev
                                  :lib mockingbird.lib}
                        :js-options {:js-provider :import}
                        :module-type :es6 
@@ -51,7 +52,6 @@
                                           :infer-externs :auto
                                           :source-map true
                                           :warnings-as-errors true}
-                       :build-options {:manifest-name "manifest.json"}
                        :build-hooks [(mockingbird.dev.shadow.hooks/build-css
                                        false
                                        "./src/mockingbird/css/tailwind.css"

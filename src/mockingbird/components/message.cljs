@@ -55,5 +55,3 @@
                       "Best Regards,"
                       (d/br)
                       (d/i "Avelino Founder Team"))))))
-
-
