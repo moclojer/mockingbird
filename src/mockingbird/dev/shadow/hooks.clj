@@ -41,9 +41,13 @@
       (println "Error listing JAR contents:" (.getMessage e)))))
 
 (defn equals-last-version [{:keys [file]}]
-  (with-open [reader (io/reader file)]
-    (let [ first-line (first (line-seq reader))]
-      (= version first-line))))
+  (if (some? file)
+    (with-open [reader (io/reader file)]
+      (let [ first-line (first (line-seq reader))]
+        (str/includes? first-line version)))
+    (do 
+      (prn "Null file sent")
+      false)))
 
 (defn get-target-css 
   "Get the auto generated css file from the mockingbird jar 
