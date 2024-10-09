@@ -27,7 +27,7 @@
                            (first (line-seq reader)))]
           (when (not= first-line version)
             (let [old-content (slurp file-path)
-                  new-content (str version "\n" old-content)]
+                  new-content (str "/* " version " */\n" old-content)]
               (with-open [writer (io/writer file-path)]
                 (.write writer new-content)))))
         (prn "CSS file not found. Skipping version prepending.")))
