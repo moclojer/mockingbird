@@ -12,7 +12,7 @@
 (def file (io/file "resources/public/assets/css/target.css"))
 
 (defn retrieve-css [{:keys [css-path]
-                     :or {css-path ""}}]
+                     :or {css-path nil}}]
   (let [css-file (if (nil? css-path)
                    file
                    (io/file css-path))]
@@ -40,10 +40,10 @@
     (catch Exception e
       (println "Error listing JAR contents:" (.getMessage e)))))
 
-(defn equals-last-version [{:keys [file] }]
-  (let [reader (io/reader file)
-        first-line (first (line-seq reader))]
-    (= version first-line)))  
+(defn equals-last-version [{:keys [file]}]
+  (with-open [reader (io/reader file)]
+    (let [ first-line (first (line-seq reader))]
+      (= version first-line))))
 
 (defn get-target-css 
   "Get the auto generated css file from the mockingbird jar 
@@ -60,7 +60,7 @@
         path (if (str/includes? path file-name)
                (str/replace path file-name "")
                path)
-        css-file (retrieve-css (str path file-name))
+        css-file (retrieve-css {:css-path (str path file-name)})
         jar-path (some #(when (re-find #"mockingbird" %) %)
                        (get-in (deps/create-basis
                                  (deps/find-edn-maps
@@ -71,7 +71,7 @@
     (prn jar-path)
     (if (nil? css-jar-file)
       (prn "CSS file not found in the JAR.")
-      (if (and (.exists css-file) (equals-last-version {:file css-file}))
+      (if (and css-file (.exists css-file) (equals-last-version {:file css-file}))
         (prn "CSS file already exists. No action needed.")
         (try
           (prn "Copying from .jar...")
