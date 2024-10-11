@@ -44,8 +44,10 @@
                        :exports {:components mockingbird.components
                                  :layout mockingbird.layout
                                  :helpers mockingbird.helpers
+                                 :examples mockingbird.examples
                                  :dev mockingbird.dev
-                                 :lib mockingbird.lib}
+                                 :lib mockingbird.lib
+                                 :core mockingbird.core}
                        :js-options {:js-provider :import}
                        :compiler-options {:infer-externs :auto}
                        :build-hooks [(mockingbird.dev.shadow.hooks/build-css
