@@ -37,21 +37,17 @@
           :ci-tests {:target           :karma
                      :output-to        "resources/test/ci.js"
                      :ns-regexp        "-test$"
-                     :compiler-options {:static-fns false}}
+                       :compiler-options {:static-fns false}}
           :npm-module {:target          :npm-module
                        :output-dir      "./target/"
-                       :asset-path      "./target"
+                       :devtools {:enabled false}
                        :exports {:components mockingbird.components
                                  :layout mockingbird.layout
                                  :helpers mockingbird.helpers
                                  :dev mockingbird.dev
                                  :lib mockingbird.lib}
                        :js-options {:js-provider :import}
-                       :module-type :es6 
-                       :compiler-options {:optimizations :advanced
-                                          :infer-externs :auto
-                                          :source-map true
-                                          :warnings-as-errors true}
+                       :compiler-options {:infer-externs :auto}
                        :build-hooks [(mockingbird.dev.shadow.hooks/build-css
                                        false
                                        "./src/mockingbird/css/tailwind.css"
