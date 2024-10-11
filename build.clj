@@ -16,7 +16,6 @@
       #(when (.endsWith (.getName %) "target.css") %)
       files)))
 
-
 (defn prepend-to-css-file []
   "Prepends a version tag to the beginning of the generated CSS file.
   This version tag will later be compared by the build hook in the end-user project."
