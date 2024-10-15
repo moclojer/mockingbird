@@ -1,33 +1,44 @@
 {:deps {:aliases [:dev]}
  :nrepl {:port 9000}
- :builds {:app {:target      :browser
-                :output-dir  "resources/public/assets/js"
-                :asset-path  "/assets/js"
-                :devtools    {:reload-strategy :full
-                              :http-port 8101
-                              :http-root "resources/public"}
-                :build-hooks [(mockingbird.dev.shadow.hooks/hash-files
-                                ["./resources/public/assets/css/target.css"
-                                 "./resources/public/assets/js/core.js"])
-                              (mockingbird.dev.shadow.hooks/replace-hashed-files
-                                "./resources/index.src.html"
-                                "./resources/public/index.html")]
-                :dev         {:modules {:core {:init-fn mockingbird.dev.core/init}}
-                              :compiler-options {:warnings-as-errors true}
-                              :build-hooks [(mockingbird.dev.shadow.hooks/build-css
-                                              true
-                                              "./src/mockingbird/css/tailwind.css"
-                                              "./resources/public/assets/css/target.css")]}
-                :release     {:modules {:core {:init-fn mockingbird.core/init}}
-                              :compiler-options {:optimizations :advanced
-                                                 :infer-externs :auto
-                                                 :source-map true
-                                                 :warnings-as-errors true}
-                              :build-options {:manifest-name "manifest.json"}
-                              :build-hooks [(mockingbird.dev.shadow.hooks/build-css
-                                              false
-                                              "./src/mockingbird/css/tailwind.css"
-                                              "./resources/public/assets/css/target.css")]}}
+ :builds {:npm-module 
+          {:target          :npm-module
+           :output-dir      "./dist/"
+           :devtools {:enabled false}
+           :entries [mockingbird.components.core] ;; TODO - add a hook for the user to recover target css file from node_module
+           :compiler-options {:infer-externs :auto}
+           :build-hooks [(mockingbird.dev.shadow.hooks/build-css
+                           false
+                           "./src/mockingbird/css/tailwind.css"
+                           "./dist/target.css")]}
+          :app 
+          {:target      :browser
+           :output-dir  "resources/public/assets/js"
+           :asset-path  "/assets/js"
+           :devtools    {:reload-strategy :full
+                         :http-port 8101
+                         :http-root "resources/public"}
+           :build-hooks [(mockingbird.dev.shadow.hooks/hash-files
+                           ["./resources/public/assets/css/target.css"
+                            "./resources/public/assets/js/core.js"])
+                         (mockingbird.dev.shadow.hooks/replace-hashed-files
+                           "./resources/index.src.html"
+                           "./resources/public/index.html")]
+           :dev         {:modules {:core {:init-fn mockingbird.dev.core/init}}
+                         :compiler-options {:warnings-as-errors true}
+                         :build-hooks [(mockingbird.dev.shadow.hooks/build-css
+                                         true
+                                         "./src/mockingbird/css/tailwind.css"
+                                         "./resources/public/assets/css/target.css")]}
+           :release     {:modules {:core {:init-fn mockingbird.core/init}}
+                         :compiler-options {:optimizations :advanced
+                                            :infer-externs :auto
+                                            :source-map true
+                                            :warnings-as-errors true}
+                         :build-options {:manifest-name "manifest.json"}
+                         :build-hooks [(mockingbird.dev.shadow.hooks/build-css
+                                         false
+                                         "./src/mockingbird/css/tailwind.css"
+                                         "./resources/public/assets/css/target.css")]}}
           :tests    {:target    :browser-test
                      :test-dir  "resources/test"
                      :ns-regexp "-test$"
@@ -37,18 +48,4 @@
           :ci-tests {:target           :karma
                      :output-to        "resources/test/ci.js"
                      :ns-regexp        "-test$"
-                     :compiler-options {:static-fns false}}
-          :npm-module {:target          :npm-module
-                       :output-dir      "./target/"
-                       :devtools {:enabled false}
-                       :exports {:components mockingbird.components
-                                 :layout mockingbird.layout
-                                 :helpers mockingbird.helpers
-                                 :lib mockingbird.lib
-                                 :core mockingbird.core}
-                       :js-options {:js-provider :import}
-                       :compiler-options {:infer-externs :auto}
-                       :build-hooks [(mockingbird.dev.shadow.hooks/build-css
-                                       false
-                                       "./src/mockingbird/css/tailwind.css"
-                                       "./target/target.css")]}}}
+                     :compiler-options {:static-fns false}}}}

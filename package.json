@@ -1,7 +1,7 @@
 {
   "name": "mockingbird-lib",
-  "version": "0.1.1",
-  "main": "dist/mockingbird-core.min.js",
+  "version": "0.0.1",
+  "main": "dist/mockingbird.components.core.js",
   "files": [
     "dist/",
     "README.md",
