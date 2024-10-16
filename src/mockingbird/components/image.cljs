@@ -6,7 +6,7 @@
    [helix.dom :as d]))
 
 (defnc ^:export image
-  [{:keys [class theme src 
+  [{:keys [class theme src
            alt size roundness
            shadow margin padding
            loading? children]

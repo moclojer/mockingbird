@@ -1,4 +1,3 @@
-
 // use puppeteer to not depend on Chromium installed
 const puppeteer = require('puppeteer');
 process.env.CHROMIUM_BIN = puppeteer.executablePath();

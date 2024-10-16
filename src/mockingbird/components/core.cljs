@@ -1,47 +1,43 @@
-(ns mockingbird.components.core
+(ns
+ ^{:doc "Core namespace for re-exporting all Mockingbird UI components.
+    This namespace provides a centralized access point for all components,
+    making it easier to import and use them in otherother applications."}
+ mockingbird.components.core
   (:refer-clojure :exclude [class type])
   (:require
-    [helix.core :refer [$]]
-    [mockingbird.components.aside :as aside]
-    [mockingbird.components.breadcrumb :as breadcrumb]
-    [mockingbird.components.button :as button]
-    [mockingbird.components.filedropdown :as filedropdown]
-    [mockingbird.components.form :as form]
-    [mockingbird.components.hero :as hero]
-    [mockingbird.components.icon :as icon]
-    [mockingbird.components.image :as image]
-    [mockingbird.components.input :as input]
-    [mockingbird.components.message :as message]
-    [mockingbird.components.pfp :as pfp]
-    [mockingbird.components.popup :as popup]
-    [mockingbird.components.selectdropdown :as selectdropdown]
-    [mockingbird.components.status :as status]))
-
-;; Re-export all components
-(defn ^:export aside [keys] 
-  ($ aside/aside {:keys keys}))
-
-(def ^:export breadcrumb breadcrumb/breadcrumb )
+   [helix.core :refer [$]]
+   [mockingbird.components.breadcrumb :as breadcrumb]
+   [mockingbird.components.button :as button]
+   [mockingbird.components.filedropdown :as filedropdown]
+   [mockingbird.components.form :as form]
+   [mockingbird.components.icon :as icon]
+   [mockingbird.components.image :as image]
+   [mockingbird.components.input :as input]
+   [mockingbird.components.message :as message]
+   [mockingbird.components.pfp :as pfp]
+   [mockingbird.components.popup :as popup]
+   [mockingbird.components.selectdropdown :as selectdropdown]
+   [mockingbird.components.status :as status]))
 
 (defn ^:export button
   [{:keys [class theme type
            disabled label on-click
            size roundness shadow
-           margin padding loading? children]
+           margin padding loading?]
     :or {class ""
          theme :mockingbird
          type :submit
          disabled false
-         label "Insert some text"
+         label nil
          on-click (fn [_])
          size :md
          roundness :md
          shadow :none
          margin :none
          padding :none
-         loading? false
-         children nil}}]
-  ($ button/button 
+         loading? false}}
+   children]
+  ($ button/button
      {:class class
       :theme theme
       :type type
@@ -53,32 +49,118 @@
       :shadow shadow
       :margin margin
       :padding padding
-      :loading? loading? }
-     children))
+      :loading? loading?}
+     (when children children)))
 
-(defn ^:export filedropdown [keys] 
-  ($ filedropdown/filedropdown {:keys keys}))
+(defn ^:export icon
+  [{:keys [class theme icon-name size color loading?]
+    :or {class ""
+         theme :mockingbird
+         icon-name "default-icon"
+         size :md
+         color "black"
+         loading? false}}
+   children]
+  ($ icon/icon
+     {:class class
+      :theme theme
+      :icon-name icon-name
+      :size size
+      :color color
+      :loading? loading?}
+     (when children children)))
 
-(defn ^:export form [keys] 
-  ($ form/form {:keys keys}))
+(defn ^:export image
+  [{:keys [class theme src alt
+           size roundness shadow
+           margin padding loading?]
+    :or {class ""
+         theme :mockingbird
+         src "/images/logo.png"
+         alt "Image description"
+         size :md
+         roundness :none
+         shadow :none
+         margin :none
+         padding :none
+         loading? false}}
+   children]
+  ($ image/image
+     {:class class
+      :theme theme
+      :src src
+      :alt alt
+      :size size
+      :roundness roundness
+      :shadow shadow
+      :margin margin
+      :padding padding
+      :loading? loading?}
+     (when children children)))
 
-(defn ^:export hero [keys] 
-  ($ hero/hero {:keys keys}))
+(defn ^:export input
+  [{:keys [class theme value placeholder
+           on-change disabled loading?]
+    :or {class ""
+         theme :mockingbird
+         value ""
+         placeholder "Enter text"
+         on-change (fn [_])
+         disabled false
+         loading? false}}
+   children]
+  ($ input/input
+     {:class class
+      :theme theme
+      :value value
+      :placeholder placeholder
+      :on-change on-change
+      :disabled disabled
+      :loading? loading?}
+     (when children children)))
 
-(defn ^:export icon [keys] 
-  ($ icon/icon {:keys keys}))
+(defn ^:export message
+  [{:keys [class theme content type loading?]
+    :or {class ""
+         theme :mockingbird
+         content ""
+         type :info
+         loading? false}}
+   children]
+  ($ message/message
+     {:class class
+      :theme theme
+      :content content
+      :type type
+      :loading? loading?}
+     (when children children)))
 
-(defn ^:export image [keys] 
-  ($ image/image {:keys keys}))
-
-(defn ^:export input [keys] 
-  ($ input/input {:keys keys}))
-
-(defn ^:export message [keys] 
-  ($ message/message {:keys keys}))
-
-(defn ^:export pfp [keys] 
-  ($ pfp/pfp {:keys keys}))
-
-(defn ^:export selectdropdown [keys] 
-  ($ selectdropdown/selectdropdown {:keys keys}))
+(defn ^:export pfp
+  [{:keys [class theme style src alt
+           size roundness shadow
+           margin padding loading?]
+    :or {class ""
+         theme :mockingbird
+         style :default
+         src "/images/logo.png"
+         alt "Profile picture"
+         size :md
+         roundness :none
+         shadow :none
+         margin :none
+         padding :none
+         loading? false}}
+   children]
+  ($ pfp/pfp
+     {:class class
+      :theme theme
+      :style style
+      :src src
+      :alt alt
+      :size size
+      :roundness roundness
+      :shadow shadow
+      :margin margin
+      :padding padding
+      :loading? loading?}
+     (when children children)))

@@ -4,7 +4,9 @@
           {:target          :npm-module
            :output-dir      "./dist/"
            :devtools {:enabled false}
-           :entries [mockingbird.components.core] ;; TODO - add a hook for the user to recover target css file from node_module
+           :entries [mockingbird.components.core
+                     mockingbird.layout.core
+                     mockingbird.helpers.props] 
            :compiler-options {:infer-externs :auto}
            :build-hooks [(mockingbird.dev.shadow.hooks/build-css
                            false
