@@ -1,4 +1,4 @@
-(ns mockingbird.components.message 
+(ns mockingbird.components.message
   (:require
    [cljs.pprint :as pprint]
    [clojure.string :as str]
@@ -27,12 +27,12 @@
          ($ text {:message message :index (inc index)}))))))
 
 (defnc ^:export message
-  [{:keys [image children author title message email] 
+  [{:keys [image children author title message email]
     :or {image ""
          author "Team Mockingbird"}}]
   (d/section
    (d/div {:class (str "p-4 bg-white block sm:flex items-center justify-between border-b"
-                            "border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700")}
+                       "border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700")}
           (d/div {:class "flex items-center divide-x divide-gray-100 dark:divide-gray-700"}
                  (d/div {:class "pl-3 text-sm font-medium text-gray-500"}
                         (gen-today-date))))

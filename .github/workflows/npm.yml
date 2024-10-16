@@ -24,5 +24,3 @@ jobs:
             - uses: JS-DevTools/npm-publish@v3.1.1
               with:
                 token: ${{ secrets.NPM_TOKEN }}
-            - name: npm publish
-              run: npm publish

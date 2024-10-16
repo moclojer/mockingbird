@@ -1,5 +1,5 @@
 {
-  "name": "mockingbird-lib",
+  "name": "mockingbird-cljs",
   "version": "0.0.1",
   "main": "dist/mockingbird.components.core.js",
   "files": [
@@ -28,9 +28,7 @@
     "postcss-preset-env": "^8.5.0",
     "rimraf": "^6.0.1",
     "shadow-cljs": "^2.23.3",
-    "tailwindcss": "^3.3.2",
-    "webpack": "^5.94.0",
-    "webpack-cli": "^5.1.4"
+    "tailwindcss": "^3.3.2"
   },
   "resolutions": {
     "react": "^18.2.0",
@@ -47,11 +45,7 @@
     "repl": "npx shadow-cljs clj-repl",
     "release": "run-s postcss:build shadow:release",
     "shadow:release": "npx shadow-cljs release app",
-    "shadow:lib": "npx shadow-cljs release npm-module",
-    "dev:webpack": "npx webpack --config webpack.config.js --env isProduction=false",
-    "prod:webpack": "npx webpack --config webpack.config.js --env isProduction=true",
-    "dev:lib": "run-s shadow:lib dev:webpack",
-    "prod:lib": "run-s shadow:lib prod:webpack"
+    "shadow:lib": "npx shadow-cljs release npm-module"
   },
   "dependencies": {
     "@codemirror/language": "^6.6.0",

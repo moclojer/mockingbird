@@ -4,7 +4,7 @@ Design System using [tailwind](https://tailwindcss.com/) and [helix](https://git
 
 A simple way to develop a user interface with a consistent user experience, without the need to clutter **cljs** code with **CSS** (unless you want to).
 
-> Work In Progress: if your desire is to use mockingbird without ClojureScript (how dare you!), you can, of course, use our npm package in your JS application. Read more [here](#Installation).
+> Work In Progress: if your desire is to use mockingbird using npm (how dare you!), you can, of course, use our npm package. Read more [here](docs/npm.md).
 
 ## name reference?
 
