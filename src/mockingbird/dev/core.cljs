@@ -8,4 +8,3 @@
     (m/init)
     (catch js/Error e
       (js/console.error "Initialization failed:" (.message e)))))
-

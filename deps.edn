@@ -22,5 +22,5 @@
                    :exec-fn deps-deploy.deps-deploy/deploy
                    :exec-args {:installer :remote
                                :sign-releases? false
-                               :pom-file "target/classes/META-INF/maven/com.github.moclojer/mockingbird/pom.xml"
+                               :pom-file "target/classes/META-INF/maven/com.moclojer/mockingbird/pom.xml"
                                :artifact "target/mockingbird-0.0.1.jar"}}}}

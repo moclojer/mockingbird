@@ -8,16 +8,17 @@
    [shadow.build :as build]
    [shadow.cljs.util :as s.util]))
 
+(def version "0.0.1")
 (def file (io/file "resources/public/assets/css/target.css"))
 
-(defn retrieve-css
-  ([]
-   (retrieve-css nil))
-  ([css-path]
-   (let [css-file (if (nil? css-path)
-                    file
-                    (io/file css-path))]
-     css-file)))
+(defn retrieve-css [{:keys [css-path]
+                     :or {css-path nil}}]
+  (let [css-file (if (nil? css-path)
+                   file
+                   (io/file css-path))]
+    (if (.exists css-file)
+      css-file
+      nil)))
 
 (defn copy-from-jar [jar-path file dest-dir file-name]
   (try
@@ -39,7 +40,19 @@
     (catch Exception e
       (println "Error listing JAR contents:" (.getMessage e)))))
 
-(defn get-target-css ^:export
+(defn equals-last-version [{:keys [file]}]
+  (if (some? file)
+    (with-open [reader (io/reader file)]
+      (let [first-line (first (line-seq reader))]
+        (str/includes? first-line version)))
+    (do
+      (prn "Null file sent")
+      false)))
+
+(defn get-target-css
+  "Get the auto generated css file from the mockingbird jar 
+  and inserts it on a given path."
+  ^:export
   {:shadow.build/stage :configure}
   [{::build/keys [mode] :as build-state}
    {:keys [path file-name]
@@ -51,7 +64,7 @@
         path (if (str/includes? path file-name)
                (str/replace path file-name "")
                path)
-        css-file (retrieve-css (str path file-name))
+        css-file (retrieve-css {:css-path (str path file-name)})
         jar-path (some #(when (re-find #"mockingbird" %) %)
                        (get-in (deps/create-basis
                                 (deps/find-edn-maps
@@ -62,13 +75,14 @@
     (prn jar-path)
     (if (nil? css-jar-file)
       (prn "CSS file not found in the JAR.")
-      (if (.exists css-file)
+      (if (and css-file (.exists css-file) (equals-last-version {:file css-file}))
         (prn "CSS file already exists. No action needed.")
         (try
-          (prn "CSS file does not exist. Copying from .jar...")
+          (prn "Copying from .jar...")
           (copy-from-jar jar-path css-jar-file path file-name)
           (catch Exception e
-            (prn "Error copying CSS file:" (.getMessage e)))))))
+            (prn "Error copying CSS file:" (.getMessage e))
+            (.printStackTrace e))))))
   build-state)
 
 (defn build-css

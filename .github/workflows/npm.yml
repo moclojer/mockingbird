@@ -12,14 +12,15 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - uses: DeLaGuardo/setup-clojure@12.5
+              with:
+                cli: "1.11.1.1139"
             - uses: actions/setup-node@v3
               with:
                 node-version: "20"
             - name: npm release
               run: |
                 npm ci && \
-                npm run lib
+                npm run prod:lib
             - uses: JS-DevTools/npm-publish@v3.1.1
               with:
                 token: ${{ secrets.NPM_TOKEN }}
-          # TODO
