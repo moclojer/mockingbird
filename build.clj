@@ -16,6 +16,20 @@
       #(when (.endsWith (.getName %) "target.css") %)
       files)))
 
+(def pom-template
+  [[:description "Design System using tailwind and helix in ClojureScript.
+    A simple way to develop a user interface with a consistent user experience, without the need to clutter cljs code with CSS (unless you want to)."]
+   [:url "https://github.com/moclojer/mockingbird"]
+   [:licenses
+    [:license
+     [:name "MIT License"]
+     [:url "https://opensource.org/licenses/MIT"]]]
+   [:scm
+    [:url "https://github.com/moclojer/mockingbird"]
+    [:connection "scm:git:https://github.com/moclojer/mockingbird.git"]
+    [:developerConnection "scm:git:ssh:git@github.com:moclojer/mockingbird.git"]
+    [:tag (str "v" version)]]])
+
 (defn prepend-to-css-file []
   "Prepends a version tag to the beginning of the generated CSS file.
   This version tag will later be compared by the build hook in the end-user project."
@@ -42,6 +56,7 @@
                 :lib lib
                 :version version
                 :basis basis
+                :pom-data pom-template
                 :src-dirs ["src"]})
   (b/copy-dir {:src-dirs ["src" "resources"]
                :target-dir class-dir})
