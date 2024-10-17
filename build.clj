@@ -3,7 +3,7 @@
     [clojure.tools.build.api :as b]
     [clojure.java.io :as io]))
 
-(def lib 'com.github.moclojer/mockingbird)
+(def lib 'com.moclojer/mockingbird)
 (def version "0.0.1")
 (def class-dir "target/classes")
 (def basis (b/create-basis {:project "deps.edn"}))
