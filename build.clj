@@ -9,13 +9,6 @@
 (def basis (b/create-basis {:project "deps.edn"}))
 (def jar-file (format "target/%s-%s.jar" (name lib) version))
 
-(defn get-css-file []
-  (let [path (io/file "resources/public/assets/css/")
-        files (file-seq path)]
-    (some 
-      #(when (.endsWith (.getName %) "target.css") %)
-      files)))
-
 (def pom-template
   [[:description "Design System using tailwind and helix in ClojureScript.
     A simple way to develop a user interface with a consistent user experience, without the need to clutter cljs code with CSS (unless you want to)."]
@@ -29,6 +22,23 @@
     [:connection "scm:git:https://github.com/moclojer/mockingbird.git"]
     [:developerConnection "scm:git:ssh:git@github.com:moclojer/mockingbird.git"]
     [:tag (str "v" version)]]])
+
+(def options {:class-dir class-dir
+              :main 'com.moclojer.mockingbird
+              :lib lib
+              :pom-data pom-template
+              :version version
+              :basis basis
+              :jar-file jar-file
+              :src-dirs (:paths basis)})
+
+(defn get-css-file []
+  (let [path (io/file "resources/public/assets/css/")
+        files (file-seq path)]
+    (some 
+      #(when (.endsWith (.getName %) "target.css") %)
+      files)))
+
 
 (defn prepend-to-css-file []
   "Prepends a version tag to the beginning of the generated CSS file.
@@ -47,25 +57,13 @@
     (catch Exception e
       (prn "Error writing to CSS file:" (.getMessage e)))))
 
+
 (defn clean [_]
   (b/delete {:path "target"}))
 
 (defn jar [_]
   (prepend-to-css-file)
-  (b/write-pom {:class-dir class-dir
-                :lib lib
-                :version version
-                :basis basis
-                :pom-data pom-template
-                :src-dirs ["src"]})
-  (b/copy-dir {:src-dirs ["src" "resources"]
+  (b/write-pom options)
+  (b/copy-dir {:src-dirs (:paths basis)
                :target-dir class-dir})
-  (b/jar {:class-dir class-dir
-          :jar-file jar-file}))
-
-(defn install [_]
-  (b/install {:basis      basis
-              :lib        lib
-              :version    version
-              :jar-file   jar-file
-              :class-dir  class-dir}))
+  (b/jar options))
