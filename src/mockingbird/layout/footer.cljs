@@ -5,8 +5,7 @@
             [helix.dom :as d]
             [refx.alpha :as refx]))
 
-(defnc footer []
-  (d/footer {:class-name "bg-slate-50"}
-            (d/div
-             (d/pre (with-out-str
-                      (pprint/pprint ""))))))
+(defnc footer [{:keys [children]}]
+  (d/footer
+   {:class-name "bg-slate-50"}
+   children))

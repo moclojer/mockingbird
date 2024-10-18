@@ -16,11 +16,17 @@
                      thheller/shadow-cljs {:mvn/version "2.20.10"}}}
   :clojure-lsp {:replace-deps {com.github.clojure-lsp/clojure-lsp-standalone {:mvn/version "2024.08.05_18.16.00-1"}}
                 :main-opts ["-m" "clojure-lsp.main"]}
-  :build {:deps {io.github.clojure/tools.build {:mvn/version "0.9.4"}}
+  :build {:extra-paths ["dev"]
+          :extra-deps {io.github.clojure/tools.build {:git/tag "v0.10.5" :git/sha "2a21b7a"}
+                       cider/cider-nrepl {:mvn/version "0.28.6"}
+                       thheller/shadow-cljs {:mvn/version "2.20.10"}}
           :ns-default build}
+  :nrepl
+  {:extra-deps {cider/cider-nrepl {:mvn/version "0.30.0"}}
+   :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
   :deploy-clojars {:extra-deps {slipset/deps-deploy {:mvn/version "RELEASE"}}
                    :exec-fn deps-deploy.deps-deploy/deploy
                    :exec-args {:installer :remote
                                :sign-releases? false
-                               :pom-file "target/classes/META-INF/maven/com.github.moclojer/mockingbird/pom.xml"
+                               :pom-file "target/classes/META-INF/maven/com.moclojer/mockingbird/pom.xml"
                                :artifact "target/mockingbird-0.0.1.jar"}}}}
