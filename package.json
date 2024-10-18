@@ -39,13 +39,13 @@
     "ci:tests": "npm run ci:karma-make && npx shadow-cljs compile ci-tests && npx karma start --single-run",
     "postcss:build": "npx cross-env TAILWIND_MODE=build postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/target.css --verbose",
     "postcss:watch": "npx cross-env TAILWIND_MODE=watch postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/target.css --verbose -w",
-    "watch": "run-p shadow:watch-css shadow:watch-cljs",
-    "shadow:watch-css": "npx cross-env TAILWIND_MODE=watch postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/target.css --verbose -w",
-    "shadow:watch-cljs": "npx shadow-cljs watch app",
+    "watch": "run-p watch-css watch-cljs",
+    "watch-css": "npx cross-env TAILWIND_MODE=watch postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/target.css --verbose -w",
+    "watch-cljs": "npx shadow-cljs watch app",
     "repl": "npx shadow-cljs clj-repl",
-    "release": "run-s postcss:build shadow:release",
-    "shadow:release": "npx shadow-cljs release app",
-    "shadow:lib": "npx shadow-cljs release npm-module"
+    "app:release": "npx shadow-cljs release app",
+    "release": "run-s postcss:build app:release",
+    "lib": "npx shadow-cljs release npm-module"
   },
   "dependencies": {
     "@codemirror/language": "^6.6.0",

@@ -1,4 +1,4 @@
-{:deps {:aliases [:dev]}
+{:deps {:aliases [:dev :build]}
  :nrepl {:port 9000}
  :builds {:npm-module 
           {:target          :npm-module

@@ -9,9 +9,8 @@
 (def basis (b/create-basis {:project "deps.edn"}))
 (def jar-file (format "target/%s-%s.jar" (name lib) version))
 
-(def pom-template
-  [[:description "Design System using tailwind and helix in ClojureScript.
-    A simple way to develop a user interface with a consistent user experience, without the need to clutter cljs code with CSS (unless you want to)."]
+(def pom-template 
+  [[:description "Design System using tailwind and helix in ClojureScript. A simple way to develop a user interface with a consistent user experience, without the need to clutter cljs code with CSS (unless you want to)."]
    [:url "https://github.com/moclojer/mockingbird"]
    [:licenses
     [:license
@@ -23,14 +22,15 @@
     [:developerConnection "scm:git:ssh:git@github.com:moclojer/mockingbird.git"]
     [:tag (str "v" version)]]])
 
-(def options {:class-dir class-dir
-              :main 'com.moclojer.mockingbird
-              :lib lib
-              :pom-data pom-template
-              :version version
-              :basis basis
-              :jar-file jar-file
-              :src-dirs (:paths basis)})
+(def options 
+  {:class-dir class-dir
+   :lib lib
+   :pom-data pom-template
+   :version version
+   :basis basis
+   :jar-file jar-file
+   :src-dirs ["src" "resources"]
+   :exclude    ["docs/*" "test/*" "target/*"]})
 
 (defn get-css-file []
   (let [path (io/file "resources/public/assets/css/")
@@ -38,7 +38,6 @@
     (some 
       #(when (.endsWith (.getName %) "target.css") %)
       files)))
-
 
 (defn prepend-to-css-file []
   "Prepends a version tag to the beginning of the generated CSS file.
@@ -57,13 +56,15 @@
     (catch Exception e
       (prn "Error writing to CSS file:" (.getMessage e)))))
 
-
 (defn clean [_]
   (b/delete {:path "target"}))
 
 (defn jar [_]
   (prepend-to-css-file)
-  (b/write-pom options)
-  (b/copy-dir {:src-dirs (:paths basis)
-               :target-dir class-dir})
-  (b/jar options))
+  (try 
+    (b/write-pom options)
+    (b/copy-dir {:src-dirs (:paths basis)
+                 :target-dir class-dir})
+    (b/jar options)
+    (catch Exception e
+      (.printStackTrace e))))

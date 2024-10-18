@@ -20,7 +20,7 @@ jobs:
             - name: npm release
               run: |
                 npm ci && \
-                npm run prod:lib
+                npm run lib
             - uses: JS-DevTools/npm-publish@v3.1.1
               with:
                 token: ${{ secrets.NPM_TOKEN }}
