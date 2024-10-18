@@ -17,7 +17,7 @@
   :clojure-lsp {:replace-deps {com.github.clojure-lsp/clojure-lsp-standalone {:mvn/version "2024.08.05_18.16.00-1"}}
                 :main-opts ["-m" "clojure-lsp.main"]}
   :build {:extra-paths ["dev"]
-          :extra-deps {io.github.clojure/tools.build {:mvn/version "0.9.4"}
+          :extra-deps {io.github.clojure/tools.build {:git/tag "v0.10.5" :git/sha "2a21b7a"}
                        cider/cider-nrepl {:mvn/version "0.28.6"}
                        thheller/shadow-cljs {:mvn/version "2.20.10"}}
           :ns-default build}
