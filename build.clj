@@ -6,7 +6,7 @@
 (def lib 'com.moclojer/mockingbird)
 (def version "0.0.1")
 (def class-dir "target/classes")
-(def basis (b/create-basis {:project "deps.edn"}))
+(def basis (delay (b/create-basis {:project "deps.edn"})))
 (def jar-file (format "target/%s-%s.jar" (name lib) version))
 
 (def pom-template 
@@ -27,7 +27,7 @@
    :lib lib
    :pom-data pom-template
    :version version
-   :basis basis
+   :basis @basis
    :jar-file jar-file
    :src-dirs ["src" "resources"]
    :exclude    ["docs/*" "test/*" "target/*"]})
@@ -63,7 +63,7 @@
   (prepend-to-css-file)
   (try 
     (b/write-pom options)
-    (b/copy-dir {:src-dirs (:paths basis)
+    (b/copy-dir {:src-dirs (:paths @basis)
                  :target-dir class-dir})
     (b/jar options)
     (catch Exception e
