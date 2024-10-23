@@ -1,7 +1,7 @@
 (ns
  ^{:doc "Core namespace for re-exporting all Mockingbird UI components.
     This namespace provides a centralized access point for all components,
-    making it easier to import and use them in otherother applications."}
+    making it easier to import and use them in other applications."}
  mockingbird.components.core
   (:refer-clojure :exclude [class type])
   (:require
@@ -50,7 +50,7 @@
       :margin margin
       :padding padding
       :loading? loading?}
-     (when children children)))
+     children))
 
 (defn ^:export icon
   [{:keys [class theme icon-name size color loading?]
@@ -68,7 +68,7 @@
       :size size
       :color color
       :loading? loading?}
-     (when children children)))
+     children))
 
 (defn ^:export image
   [{:keys [class theme src alt
@@ -96,7 +96,7 @@
       :margin margin
       :padding padding
       :loading? loading?}
-     (when children children)))
+     children))
 
 (defn ^:export input
   [{:keys [class theme value placeholder
@@ -117,7 +117,7 @@
       :on-change on-change
       :disabled disabled
       :loading? loading?}
-     (when children children)))
+     children))
 
 (defn ^:export message
   [{:keys [class theme content type loading?]
@@ -133,7 +133,7 @@
       :content content
       :type type
       :loading? loading?}
-     (when children children)))
+     children))
 
 (defn ^:export pfp
   [{:keys [class theme style src alt
@@ -163,4 +163,4 @@
       :margin margin
       :padding padding
       :loading? loading?}
-     (when children children)))
+     children))

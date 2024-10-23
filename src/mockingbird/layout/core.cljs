@@ -14,16 +14,16 @@
 
 (defn ^:export main [{:keys [children]}]
   ($ main/main
-     (when children children)))
+     children))
 
 (defn ^:export footer [{:keys [children]}]
   ($ footer/footer
-     (when children children)))
+     children))
 
 (defn ^:export header [{:keys [children]}]
   ($ header/header
-     (when children children)))
+     children))
 
 (defn ^:export navbar [{:keys [children]}]
   ($ navbar/nav-bar
-     (when children children)))
+     children))

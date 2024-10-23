@@ -28,7 +28,7 @@ deps.edn example config (you will need at least helix and shadow-cljs to use moc
 
 # Usage
 
-This is a example of usage of mockingbird without using clojars:
+This is an example of using mockingbird without clojars:
 
 ```clj 
 

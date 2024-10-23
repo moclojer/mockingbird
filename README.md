@@ -45,7 +45,18 @@ npm:
 ``` sh
 
 $ npx create-cljs-project your-project
-$ npm install react react-dom react-refresh autoprefixer css-loader cssnano karma karma-chrome-launcher karma-cljs-test msw npm-run-all postcss postcss-cli postcss-loader postcss-preset-env shadow-cljs tailwindcss rimraf glob cliui --save-dev
+# Install runtime dependencies
+$ npm install react react-dom --save
+# Install development dependencies
+$ npm install --save-dev \
+  # Build tools
+  shadow-cljs rimraf \
+  # CSS processing
+  autoprefixer postcss postcss-cli postcss-loader postcss-preset-env css-loader cssnano tailwindcss \
+  # Testing
+  karma karma-chrome-launcher karma-cljs-test msw \
+  # Utilities
+  npm-run-all glob cliui react-refresh
 
 ```
 
@@ -87,7 +98,7 @@ This is a shadow-cljs config example, you can use it the way you want it
 
 # Usage 
 
-Add a import on a specific component or layout component you want and load it in your screen
+Add a import for a specific component or layout component you want and load it in your screen
 
 ``` clj
 (:require 
