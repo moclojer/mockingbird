@@ -6,7 +6,7 @@
    [helix.dom :as d]))
 
 (def pfp-styles
-  {:mockinbird {:default "w-8 h-8 opacity-100"
+  {:mockingbird {:default "w-8 h-8 opacity-100"
                 :loading "w-8 h-8 opacity-30 animate-pulse"}})
 
 (defnc ^:export pfp

@@ -24,5 +24,5 @@
                 :author "moclojer team"
                 :image "/images/logo.png"
                 :image-style "rounded"
-                :message ["" "I look forward to your feedback (this is the only way we can improve our code)."]}))
+                :message [""]}))
          ($ footer)))
