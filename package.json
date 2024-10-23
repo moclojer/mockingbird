@@ -1,18 +1,22 @@
 {
-  "name": "mockingbird-lib",
+  "name": "mockingbird-cljs",
   "version": "0.0.1",
-  "main": "dist/mockingbird-lib.js",
-  "files": [  
+  "main": "dist/mockingbird.components.core.js",
+  "files": [
     "dist/",
     "README.md",
     "docs/"
   ],
   "devDependencies": {
+    "@babel/preset-env": "^7.25.7",
+    "@babel/preset-react": "^7.25.7",
+    "@isaacs/cliui": "^8.0.2",
     "@testing-library/react": "^14.0.0",
     "autoprefixer": "^10.4.20",
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
     "cssnano": "^6.0.1",
+    "glob": "^11.0.0",
     "karma": "^6.4.2",
     "karma-chrome-launcher": "^3.2.0",
     "karma-cljs-test": "^0.1.0",
@@ -22,34 +26,26 @@
     "postcss-cli": "^10.1.0",
     "postcss-loader": "^7.3.3",
     "postcss-preset-env": "^8.5.0",
-    "shadow-cljs": "^2.23.3",
-    "tailwindcss": "^3.3.2",
-    "webpack": "^5.94.0",
-    "webpack-cli": "^5.1.4",
     "rimraf": "^6.0.1",
-    "glob": "^11.0.0",
-    "@isaacs/cliui": "^8.0.2"
+    "shadow-cljs": "^2.23.3",
+    "tailwindcss": "^3.3.2"
   },
   "resolutions": {
-      "react": "^18.2.0",
-      "react-dom": "^18.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "scripts": {
     "ci:karma-make": "npx msw init resources/test",
     "ci:tests": "npm run ci:karma-make && npx shadow-cljs compile ci-tests && npx karma start --single-run",
     "postcss:build": "npx cross-env TAILWIND_MODE=build postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/target.css --verbose",
     "postcss:watch": "npx cross-env TAILWIND_MODE=watch postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/target.css --verbose -w",
-    "watch": "run-p shadow:watch-css shadow:watch-cljs",
-    "shadow:watch-css": "npx cross-env TAILWIND_MODE=watch postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/target.css --verbose -w",
-    "shadow:watch-cljs": "npx shadow-cljs watch app",
+    "watch": "run-p watch-css watch-cljs",
+    "watch-css": "npx cross-env TAILWIND_MODE=watch postcss src/mockingbird/css/tailwind.css -o ./resources/public/assets/css/target.css --verbose -w",
+    "watch-cljs": "npx shadow-cljs watch app",
     "repl": "npx shadow-cljs clj-repl",
-    "release": "run-s postcss:build shadow:release",
-    "shadow:release": "npx shadow-cljs release app",
-    "shadow:lib": "npx shadow-cljs release npm-module",
-    "dev:webpack": "npx webpack --config webpack.config.js --env isProduction=false",
-    "prod:webpack": "npx webpack --config webpack.config.js --env isProduction=true",
-    "dev:lib": "run-s shadow:lib dev:webpack",
-    "prod:lib": "run-s shadow:lib prod:webpack"
+    "app:release": "npx shadow-cljs release app",
+    "release": "run-s postcss:build app:release",
+    "lib": "npx shadow-cljs release npm-module"
   },
   "dependencies": {
     "@codemirror/language": "^6.6.0",

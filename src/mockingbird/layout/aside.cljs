@@ -1,4 +1,4 @@
-(ns mockingbird.components.aside
+(ns mockingbird.layout.aside
   (:require
    [mockingbird.components.button :refer [button]]
    [mockingbird.components.icon :refer [icon]]
