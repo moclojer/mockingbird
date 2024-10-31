@@ -8,7 +8,7 @@
    [shadow.build :as build]
    [shadow.cljs.util :as s.util]))
 
-(def version "0.0.1")
+(def version "0.0.2")
 (def file (io/file "resources/public/assets/css/target.css"))
 
 (defn retrieve-css [{:keys [css-path]

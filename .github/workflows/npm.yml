@@ -9,6 +9,7 @@ on:
 jobs:
     publish:
         runs-on: ubuntu-latest
+        environment: env
         steps:
             - uses: actions/checkout@v4
             - uses: DeLaGuardo/setup-clojure@12.5

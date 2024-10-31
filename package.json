@@ -1,6 +1,6 @@
 {
-  "name": "mockingbird-cljs",
-  "version": "0.0.1",
+  "name": "@moclojer/mockingbird-cljs",
+  "version": "0.0.2",
   "main": "dist/mockingbird.components.core.js",
   "files": [
     "dist/",

@@ -4,7 +4,7 @@
     [clojure.java.io :as io]))
 
 (def lib 'com.moclojer/mockingbird)
-(def version "0.0.1")
+(def version "0.0.2")
 (def class-dir "target/classes")
 (def basis (delay (b/create-basis {:project "deps.edn"})))
 (def jar-file (format "target/%s-%s.jar" (name lib) version))
