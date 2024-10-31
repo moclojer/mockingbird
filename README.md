@@ -35,7 +35,7 @@ We distribute our software via clojars (and intend to do so also by npm):
 
 deps.edn:
 ``` clj
-  moclojer/mockingbird {:mvn/version "0.0.1"}
+  moclojer/mockingbird {:mvn/version "0.0.2"}
 ```
 
 You will also need to start a project with shadow-cljs and install the npm deps.
@@ -70,7 +70,7 @@ Add these deps to your project in order to render using helix.
 ``` clj
 
 {:paths ["src" "resources"]
- :deps {moclojer/mockingbird {:mvn/version "0.0.1"}
+ :deps {moclojer/mockingbird {:mvn/version "0.0.2"}
         com.fbeyer/refx {:mvn/version "0.0.49"}
         lilactown/helix {:mvn/version "0.1.11"}
         com.teknql/shadow-cljs-tailwind-jit {:mvn/version "1.0.0"}}
