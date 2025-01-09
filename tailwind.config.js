@@ -21,7 +21,7 @@ module.exports = {
     'bg-opacity-50',
     'dark:bg-opacity-80'
   ],
-  darkMode: "class",
+  darkMode: 'selector',
   theme: {
     fontSize: {
       xs: ['0.75rem', { lineHeight: '1rem' }],
@@ -69,4 +69,9 @@ module.exports = {
     require('@tailwindcss/forms'),
     require('flowbite/plugin')
   ],
+  future: {
+    hoverOnlyWhenSupported: true,
+    disableColorOpacityUtilitiesByDefault: false,
+    respectDefaultRingColorOpacity: true,
+  }
 };
