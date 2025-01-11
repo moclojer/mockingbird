@@ -1,6 +1,6 @@
 # mockingbird
 
-Design System using [tailwind](https://tailwindcss.com/) and [helix](https://github.com/lilactown/helix) in [ClojureScript](https://clojurescript.org/).
+Design System using [tailwind](https://tailwindcss.com/) *[4 beta](https://tailwindcss.com/blog/tailwindcss-v4-beta)* and [helix](https://github.com/lilactown/helix) in [ClojureScript](https://clojurescript.org/).
 
 A simple way to develop a user interface with a consistent user experience, without the need to clutter **cljs** code with **CSS** (unless you want to).
 
